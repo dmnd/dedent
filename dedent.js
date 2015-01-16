@@ -15,6 +15,7 @@ function dedent(strings, ...values) {
   let lines = result.trim().split("\n");
   let mindent = null;
   lines.forEach(l => {
+    let m;
     if (m = l.match(/^ +/)) {
       let indent = m[0].length;
       if (!mindent) {
