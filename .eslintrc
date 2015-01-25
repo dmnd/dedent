@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "binaryLiterals": true,
+    "blockBindings": true,
+    "defaultParams": true,
+    "forOf": true,
+    "generators": true,
+    "objectLiteralComputedProperties": true,
+    "objectLiteralDuplicateProperties": true,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "octalLiterals": true,
+    "regexUFlag": true,
+    "regexYFlag": true,
+    "templateStrings": true,
+    "unicodeCodePointEscapes": true,
+    "jsx": true
+  },
+  "rules": {
+    "no-underscore-dangle": false
+  }
+}
