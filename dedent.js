@@ -12,7 +12,7 @@ function dedent(strings, ...values) {
   }
 
   // now strip indentation
-  let lines = result.trim().split("\n");
+  const lines = result.trim().split("\n");
   let mindent = null;
   lines.forEach(l => {
     let m;

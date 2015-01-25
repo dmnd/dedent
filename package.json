@@ -1,10 +1,10 @@
 {
   "name": "dedent",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "An ES6 string tag that strips indentation from multi-line strings",
-  "main": "dedent.js",
+  "main": "dist/dedent.js",
   "files": [
-    "dedent.js",
+    "dist/dedent.js",
     "LICENSE"
   ],
   "repository": {
@@ -30,6 +30,8 @@
   "devDependencies": {
     "6to5": "^2.11.3",
     "6to5-jest": "^1.0.0",
+    "gulp": "^3.8.10",
+    "gulp-6to5": "^2.0.2",
     "jest-cli": "^0.2.1"
   },
   "scripts": {
@@ -37,7 +39,12 @@
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/6to5-jest",
-    "testFileExtensions": ["js"],
-    "moduleFileExtensions": ["js", "json"]
+    "testFileExtensions": [
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
   }
 }
