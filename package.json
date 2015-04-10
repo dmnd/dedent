@@ -28,17 +28,16 @@
   },
   "homepage": "https://github.com/dmnd/dedent",
   "devDependencies": {
-    "6to5": "^2.11.3",
-    "6to5-jest": "^1.0.0",
+    "babel-jest": "^5.0.1",
     "gulp": "^3.8.10",
-    "gulp-6to5": "^2.0.2",
+    "gulp-babel": "^5.1.0",
     "jest-cli": "^0.2.1"
   },
   "scripts": {
     "test": "jest"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/6to5-jest",
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "testFileExtensions": [
       "js"
     ],

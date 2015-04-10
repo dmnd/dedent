@@ -30,8 +30,9 @@ function dedent(strings) {
       }
     }
   });
-  if (mindent === null) return result;
-  return lines.map(function (l) {
+  if (mindent === null) {
+    return result;
+  }return lines.map(function (l) {
     return l[0] === " " ? l.slice(mindent) : l;
   }).join("\n");
 };
