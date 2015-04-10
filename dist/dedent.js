@@ -19,8 +19,8 @@ function dedent(strings) {
   var lines = result.trim().split("\n");
   var mindent = null;
   lines.forEach(function (l) {
-    var m = undefined;
-    if (m = l.match(/^ +/)) {
+    var m = l.match(/^ +/);
+    if (m) {
       var indent = m[0].length;
       if (!mindent) {
         // this is the first indented line
@@ -35,6 +35,6 @@ function dedent(strings) {
   }return lines.map(function (l) {
     return l[0] === " " ? l.slice(mindent) : l;
   }).join("\n");
-};
+}
 
 module.exports = dedent;

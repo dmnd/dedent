@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true
@@ -21,6 +22,7 @@
     "jsx": true
   },
   "rules": {
-    "no-underscore-dangle": false
+    "no-underscore-dangle": false,
+    "curly": [2, "multi-line"]
   }
 }
