@@ -36,7 +36,8 @@
     "jest-cli": "^0.2.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint dedent.js __tests__"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",

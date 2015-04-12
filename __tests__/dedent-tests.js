@@ -1,33 +1,37 @@
+/*global jest, describe, it, expect */
+
+"use strict";
+
 jest.dontMock("../dedent");
 
 describe("dedent", () => {
   it("works without interpolation", () => {
-    let dd = require("../dedent");
-    let result = dd`first
+    const dd = require("../dedent");
+    const result = dd`first
                     second
                     third`;
     expect(result).toBe("first\nsecond\nthird");
   });
 
   it("works with interpolation", () => {
-    let dd = require("../dedent");
-    let result = dd`first ${"line"}
+    const dd = require("../dedent");
+    const result = dd`first ${"line"}
                     ${"second"}
                     third`;
     expect(result).toBe("first line\nsecond\nthird");
   });
 
   it("works with suppressed newlines", () => {
-    let dd = require("../dedent");
-    let result = dd`first \
+    const dd = require("../dedent");
+    const result = dd`first \
                     ${"second"}
                     third`;
     expect(result).toBe("first second\nthird");
   });
 
   it("works with blank first line", () => {
-    let dd = require("../dedent");
-    let result = dd`
+    const dd = require("../dedent");
+    const result = dd`
       Some text that I might want to indent because:
         * reasons
         * fun
