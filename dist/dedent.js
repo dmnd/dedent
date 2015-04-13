@@ -5,11 +5,19 @@ function dedent(strings) {
     values[_key - 1] = arguments[_key];
   }
 
+  var raw = undefined;
+  if (typeof strings === "string") {
+    // dedent can be used as a plain function
+    raw = [strings];
+  } else {
+    raw = strings.raw;
+  }
+
   // first, perform interpolation
   var result = "";
-  for (var i = 0; i < strings.length; i++) {
+  for (var i = 0; i < raw.length; i++) {
     // join lines when there is a suppressed newline
-    result += strings.raw[i].replace(/\\\n[ \t]*/g, "");
+    result += raw[i].replace(/\\\n[ \t]*/g, "");
     if (i < values.length) {
       result += values[i];
     }
