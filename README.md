@@ -5,14 +5,15 @@ An ES6 string tag that strips indentation from multi-line strings.
 ## Usage
 
 ```js
-var dd = require('dedent');
+import dedent from "dedent";
 
 function usageExample() {
-  let first = dd`A string that gets so long you need to break it over multiple
-                 lines. Luckily dedent is here to keep it readable without
-                 lots of spaces ending up in the string itself.`;
+  const first = dedent`A string that gets so long you need to break it over
+                       multiple lines. Luckily dedent is here to keep it
+                       readable without lots of spaces ending up in the string
+                       itself.`;
 
-  let second = dd`
+  const second = dedent`
     Leading and trailing lines will be trimmed, so you can write something like
     this and have it work as you expect:
 
@@ -23,7 +24,7 @@ function usageExample() {
     That's all.
   `;
 
-  let third = dd(`
+  const third = dedent(`
     Wait! I lied. Dedent can also be used as a function.
   `);
 
@@ -36,9 +37,10 @@ function usageExample() {
 ```
 
 ```
-A string that gets so long you need to break it over multiple
-lines. Luckily dedent is here to keep it readable without
-lots of spaces ending up in the string itself.
+A string that gets so long you need to break it over
+multiple lines. Luckily dedent is here to keep it
+readable without lots of spaces ending up in the string
+itself.
 
 Leading and trailing lines will be trimmed, so you can write something like
 this and have it work as you expect:
