@@ -44,4 +44,29 @@ describe("dedent", () => {
       "  * fun\n" +
       "That's all.");
   });
+
+  describe("single line input", () => {
+    const expected = "A single line of input.";
+
+    it("works with single line input", () => {
+      const dd = require("../dedent");
+      const result = dd`A single line of input.`;
+      expect(result).toBe(expected);
+    });
+
+    it("works with single line and closing backtick on newline", () => {
+      const dd = require("../dedent");
+      const result = dd`
+        A single line of input.
+      `;
+      expect(result).toBe(expected);
+    });
+
+    it("works with single line and inline closing backtick", () => {
+      const dd = require("../dedent");
+      const result = dd`
+        A single line of input.`;
+      expect(result).toBe(expected);
+    });
+  });
 });

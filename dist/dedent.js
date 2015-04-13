@@ -15,8 +15,11 @@ function dedent(strings) {
     }
   }
 
+  // dedent eats leading and trailing whitespace too
+  result = result.trim();
+
   // now strip indentation
-  var lines = result.trim().split("\n");
+  var lines = result.split("\n");
   var mindent = null;
   lines.forEach(function (l) {
     var m = l.match(/^ +/);
