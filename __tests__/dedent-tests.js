@@ -69,4 +69,12 @@ describe("dedent", () => {
       expect(result).toBe(expected);
     });
   });
+
+  it("can be used as a function", () => {
+    const dd = require("../dedent");
+    const arg = `
+      A test argument.
+    `;
+    expect(dd(arg)).toBe("A test argument.");
+  });
 });

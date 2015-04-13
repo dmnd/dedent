@@ -23,7 +23,11 @@ function usageExample() {
     That's all.
   `;
 
-  return first + "\n\n" + second;
+  let third = dd(`
+    Wait! I lied. Dedent can also be used as a function.
+  `);
+
+  return first + "\n\n" + second + "\n\n" third;
 }
 ```
 
@@ -44,6 +48,8 @@ this and have it work as you expect:
     - and still have it do the right thing
 
 That's all.
+
+Wait! I lied. Dedent can also be used as a function.
 ```
 
 ## License
