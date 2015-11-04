@@ -48,4 +48,6 @@ function dedent(strings) {
   }).join("\n");
 }
 
-module.exports = dedent;
+if ('undefined' !== typeof module) {
+  module.exports = dedent;
+}

@@ -42,4 +42,6 @@ function dedent(strings, ...values) {
   return lines.map(l => l[0] === " " ? l.slice(mindent) : l).join("\n");
 }
 
-module.exports = dedent;
+if ('undefined' !== typeof module) {
+  module.exports = dedent;
+}
