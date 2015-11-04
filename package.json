@@ -33,7 +33,7 @@
     "eslint": "^0.18.0",
     "gulp": "^3.8.10",
     "gulp-babel": "^5.1.0",
-    "jest-cli": "^0.2.1"
+    "jest-cli": "^0.7.1"
   },
   "scripts": {
     "test": "jest",
