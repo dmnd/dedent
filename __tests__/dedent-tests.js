@@ -45,6 +45,26 @@ describe("dedent", () => {
       "That's all.");
   });
 
+  it("works with multiple blank first lines", () => {
+    const dd = require("../dedent");
+    const result = dd`
+
+                    first
+                    second
+                    third`;
+    expect(result).toBe("first\nsecond\nthird");
+  });
+
+  it("works with removing same number of spaces", () => {
+    const dd = require("../dedent");
+    const result = dd`
+                    first
+                       second
+                          third
+                    `;
+    expect(result).toBe("first\nsecond\n   third");
+  });
+
   describe("single line input", () => {
     const expected = "A single line of input.";
 
