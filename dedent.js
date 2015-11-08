@@ -43,8 +43,13 @@ function dedent(strings, ...values) {
       }
     }
   });
-  if (mindent === null) return result;
-  return lines.map(l => l[0] === " " ? l.slice(mindent) : l).join("\n");
+
+  if (mindent !== null) {
+    result = lines.map(l => l[0] === " " ? l.slice(mindent) : l).join("\n");
+  }
+
+  // handle escaped newlines at the end to ensure they don't get stripped too
+  return result.replace(/\\n/g, "\n");
 }
 
 if (typeof module !== "undefined") {

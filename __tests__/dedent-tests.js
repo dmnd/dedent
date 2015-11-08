@@ -102,4 +102,22 @@ describe("dedent", () => {
     const dd = require("../dedent");
     expect(dd`\``).toBe('`');
   });
+
+  it("doesn't strip exlicit newlines", () => {
+    const dd = require("../dedent");
+    const result = dd`
+      <p>Hello world!</p>\n
+    `;
+    expect(result).toBe("<p>Hello world!</p>\n");
+  });
+
+  it("doesn't strip exlicit newlines with mindent", () => {
+    const dd = require("../dedent");
+    const result = dd`
+      <p>
+        Hello world!
+      </p>\n
+    `;
+    expect(result).toBe("<p>\n  Hello world!\n</p>\n");
+  });
 });
