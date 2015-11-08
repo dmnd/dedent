@@ -97,4 +97,9 @@ describe("dedent", () => {
     `;
     expect(dd(arg)).toBe("A test argument.");
   });
+
+  it("escapes backticks", () => {
+    const dd = require("../dedent");
+    expect(dd`\``).toBe('`');
+  });
 });

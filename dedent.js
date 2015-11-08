@@ -13,8 +13,13 @@ function dedent(strings, ...values) {
   // first, perform interpolation
   let result = "";
   for (let i = 0; i < raw.length; i++) {
-    // join lines when there is a suppressed newline
-    result += raw[i].replace(/\\\n[ \t]*/g, "");
+    result += raw[i].
+      // join lines when there is a suppressed newline
+      replace(/\\\n[ \t]*/g, "").
+
+      // handle escaped backticks
+      replace(/\\`/g, "`");
+
     if (i < values.length) {
       result += values[i];
     }
