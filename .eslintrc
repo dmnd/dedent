@@ -1,28 +1,12 @@
 {
-  "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "es6": true
   },
-  "ecmaFeatures": {
-    "binaryLiterals": true,
-    "blockBindings": true,
-    "defaultParams": true,
-    "forOf": true,
-    "generators": true,
-    "objectLiteralComputedProperties": true,
-    "objectLiteralDuplicateProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "octalLiterals": true,
-    "regexUFlag": true,
-    "regexYFlag": true,
-    "templateStrings": true,
-    "unicodeCodePointEscapes": true,
-    "jsx": true
-  },
+  "extends": "eslint:recommended",
   "rules": {
-    "no-underscore-dangle": false,
+    "semi": [2, "always"],
     "curly": [2, "multi-line"]
   }
 }
