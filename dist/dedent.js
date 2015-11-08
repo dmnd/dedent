@@ -1,9 +1,6 @@
 "use strict";
 
 function dedent(strings) {
-  for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    values[_key - 1] = arguments[_key];
-  }
 
   var raw = undefined;
   if (typeof strings === "string") {
@@ -15,9 +12,19 @@ function dedent(strings) {
 
   // first, perform interpolation
   var result = "";
+
+  for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    values[_key - 1] = arguments[_key];
+  }
+
   for (var i = 0; i < raw.length; i++) {
+    result += raw[i].
     // join lines when there is a suppressed newline
-    result += raw[i].replace(/\\\n[ \t]*/g, "");
+    replace(/\\\n[ \t]*/g, "").
+
+    // handle escaped backticks
+    replace(/\\`/g, "`");
+
     if (i < values.length) {
       result += values[i];
     }
@@ -41,13 +48,17 @@ function dedent(strings) {
       }
     }
   });
-  if (mindent === null) {
-    return result;
-  }return lines.map(function (l) {
-    return l[0] === " " ? l.slice(mindent) : l;
-  }).join("\n");
+
+  if (mindent !== null) {
+    result = lines.map(function (l) {
+      return l[0] === " " ? l.slice(mindent) : l;
+    }).join("\n");
+  }
+
+  // handle escaped newlines at the end to ensure they don't get stripped too
+  return result.replace(/\\n/g, "\n");
 }
 
-if ('undefined' !== typeof module) {
+if (typeof module !== "undefined") {
   module.exports = dedent;
 }
