@@ -2,7 +2,7 @@
 
 function dedent(strings) {
 
-  var raw = undefined;
+  var raw = void 0;
   if (typeof strings === "string") {
     // dedent can be used as a plain function
     raw = [strings];
@@ -12,11 +12,6 @@ function dedent(strings) {
 
   // first, perform interpolation
   var result = "";
-
-  for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    values[_key - 1] = arguments[_key];
-  }
-
   for (var i = 0; i < raw.length; i++) {
     result += raw[i].
     // join lines when there is a suppressed newline
@@ -25,8 +20,8 @@ function dedent(strings) {
     // handle escaped backticks
     replace(/\\`/g, "`");
 
-    if (i < values.length) {
-      result += values[i];
+    if (i < (arguments.length <= 1 ? 0 : arguments.length - 1)) {
+      result += arguments.length <= i + 1 ? undefined : arguments[i + 1];
     }
   }
 
