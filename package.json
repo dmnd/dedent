@@ -32,20 +32,10 @@
     "eslint": "^1.9.0",
     "gulp": "^3.8.10",
     "gulp-babel": "^5.1.0",
-    "jest-cli": "^0.7.1"
+    "jest": "^18.1.0"
   },
   "scripts": {
     "test": "jest",
     "lint": "eslint dedent.js __tests__"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "testFileExtensions": [
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json"
-    ]
   }
 }
