@@ -62,7 +62,7 @@ describe("dedent", () => {
                          second
                             third
                      `;
-    expect(result).toBe("first\nsecond\n   third");
+    expect(result).toBe("first\n   second\n      third");
   });
 
   describe("single line input", () => {
