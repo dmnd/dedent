@@ -4,6 +4,10 @@
     "node": true,
     "es6": true
   },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "extends": "eslint:recommended",
   "rules": {
     "semi": [2, "always"],

@@ -1,14 +1,12 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = dedent;
 function dedent(strings) {
-
-  var raw = void 0;
-  if (typeof strings === "string") {
-    // dedent can be used as a plain function
-    raw = [strings];
-  } else {
-    raw = strings.raw;
-  }
+  // $FlowFixMe: Flow doesn't undestand .raw
+  var raw = typeof strings === "string" ? [strings] : strings.raw;
 
   // first, perform interpolation
   var result = "";
@@ -42,18 +40,17 @@ function dedent(strings) {
   });
 
   if (mindent !== null) {
-    result = lines.map(function (l) {
-      return l[0] === " " ? l.slice(mindent) : l;
-    }).join("\n");
+    (function () {
+      var m = mindent; // appease Flow
+      result = lines.map(function (l) {
+        return l[0] === " " ? l.slice(m) : l;
+      }).join("\n");
+    })();
   }
 
+  return result.
   // dedent eats leading and trailing whitespace too
-  result = result.trim();
-
+  trim().
   // handle escaped newlines at the end to ensure they don't get stripped too
-  return result.replace(/\\n/g, "\n");
-}
-
-if (typeof module !== "undefined") {
-  module.exports = dedent;
+  replace(/\\n/g, "\n");
 }

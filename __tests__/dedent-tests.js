@@ -1,12 +1,9 @@
-/*global jest, describe, it, expect */
+// @flow
 
-"use strict";
-
-jest.dontMock("../dedent");
+import dd from '../dedent';
 
 describe("dedent", () => {
   it("works without interpolation", () => {
-    const dd = require("../dedent");
     const result = dd`first
                       second
                       third`;
@@ -14,7 +11,6 @@ describe("dedent", () => {
   });
 
   it("works with interpolation", () => {
-    const dd = require("../dedent");
     const result = dd`first ${"line"}
                       ${"second"}
                       third`;
@@ -22,7 +18,6 @@ describe("dedent", () => {
   });
 
   it("works with suppressed newlines", () => {
-    const dd = require("../dedent");
     const result = dd`first \
                       ${"second"}
                       third`;
@@ -30,7 +25,6 @@ describe("dedent", () => {
   });
 
   it("works with blank first line", () => {
-    const dd = require("../dedent");
     const result = dd`
       Some text that I might want to indent:
         * reasons
@@ -46,7 +40,6 @@ describe("dedent", () => {
   });
 
   it("works with multiple blank first lines", () => {
-    const dd = require("../dedent");
     const result = dd`
 
                     first
@@ -56,7 +49,6 @@ describe("dedent", () => {
   });
 
   it("works with removing same number of spaces", () => {
-    const dd = require("../dedent");
     const result = dd`
                       first
                          second
@@ -69,13 +61,11 @@ describe("dedent", () => {
     const expected = "A single line of input.";
 
     it("works with single line input", () => {
-      const dd = require("../dedent");
       const result = dd`A single line of input.`;
       expect(result).toBe(expected);
     });
 
     it("works with single line and closing backtick on newline", () => {
-      const dd = require("../dedent");
       const result = dd`
         A single line of input.
       `;
@@ -83,7 +73,6 @@ describe("dedent", () => {
     });
 
     it("works with single line and inline closing backtick", () => {
-      const dd = require("../dedent");
       const result = dd`
         A single line of input.`;
       expect(result).toBe(expected);
@@ -91,7 +80,6 @@ describe("dedent", () => {
   });
 
   it("can be used as a function", () => {
-    const dd = require("../dedent");
     const arg = `
       A test argument.
     `;
@@ -99,12 +87,10 @@ describe("dedent", () => {
   });
 
   it("escapes backticks", () => {
-    const dd = require("../dedent");
     expect(dd`\``).toBe('`');
   });
 
   it("doesn't strip exlicit newlines", () => {
-    const dd = require("../dedent");
     const result = dd`
       <p>Hello world!</p>\n
     `;
@@ -112,7 +98,6 @@ describe("dedent", () => {
   });
 
   it("doesn't strip exlicit newlines with mindent", () => {
-    const dd = require("../dedent");
     const result = dd`
       <p>
         Hello world!

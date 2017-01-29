@@ -228,6 +228,16 @@ babel-core@^6.0.0, babel-core@^6.22.0, babel-core@^6.22.1:
     slash "^1.0.0"
     source-map "^0.5.0"
 
+babel-eslint:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-7.1.1.tgz#8a6a884f085aa7060af69cfc77341c2f99370fb2"
+  dependencies:
+    babel-code-frame "^6.16.0"
+    babel-traverse "^6.15.0"
+    babel-types "^6.15.0"
+    babylon "^6.13.0"
+    lodash.pickby "^4.6.0"
+
 babel-generator@^6.18.0, babel-generator@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.22.0.tgz#d642bf4961911a8adc7c692b0c9297f325cda805"
@@ -381,6 +391,10 @@ babel-plugin-syntax-async-functions@^6.8.0:
 babel-plugin-syntax-exponentiation-operator@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-exponentiation-operator/-/babel-plugin-syntax-exponentiation-operator-6.13.0.tgz#9ee7e8337290da95288201a6a57f4170317830de"
+
+babel-plugin-syntax-flow@^6.18.0:
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-flow/-/babel-plugin-syntax-flow-6.18.0.tgz#4c3ab20a2af26aa20cd25995c398c4eb70310c8d"
 
 babel-plugin-syntax-trailing-function-commas@^6.22.0:
   version "6.22.0"
@@ -570,6 +584,13 @@ babel-plugin-transform-exponentiation-operator@^6.22.0:
     babel-plugin-syntax-exponentiation-operator "^6.8.0"
     babel-runtime "^6.22.0"
 
+babel-plugin-transform-flow-strip-types:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-flow-strip-types/-/babel-plugin-transform-flow-strip-types-6.22.0.tgz#84cb672935d43714fdc32bce84568d87441cf7cf"
+  dependencies:
+    babel-plugin-syntax-flow "^6.18.0"
+    babel-runtime "^6.22.0"
+
 babel-plugin-transform-regenerator@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-regenerator/-/babel-plugin-transform-regenerator-6.22.0.tgz#65740593a319c44522157538d690b84094617ea6"
@@ -668,7 +689,7 @@ babel-template@^6.16.0, babel-template@^6.22.0:
     babylon "^6.11.0"
     lodash "^4.2.0"
 
-babel-traverse@^6.18.0, babel-traverse@^6.22.0, babel-traverse@^6.22.1:
+babel-traverse@^6.15.0, babel-traverse@^6.18.0, babel-traverse@^6.22.0, babel-traverse@^6.22.1:
   version "6.22.1"
   resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.22.1.tgz#3b95cd6b7427d6f1f757704908f2fc9748a5f59f"
   dependencies:
@@ -682,7 +703,7 @@ babel-traverse@^6.18.0, babel-traverse@^6.22.0, babel-traverse@^6.22.1:
     invariant "^2.2.0"
     lodash "^4.2.0"
 
-babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.22.0:
+babel-types@^6.15.0, babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.22.0.tgz#2a447e8d0ea25d2512409e4175479fd78cc8b1db"
   dependencies:
@@ -1293,6 +1314,10 @@ flat-cache@^1.2.1:
     del "^2.0.2"
     graceful-fs "^4.1.2"
     write "^0.2.1"
+
+flow-bin:
+  version "0.38.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.38.0.tgz#3ae096d401c969cc8b5798253fb82381e2d0237a"
 
 for-in@^0.1.5:
   version "0.1.6"
@@ -2143,6 +2168,10 @@ lodash.keys@^3.0.0:
     lodash._getnative "^3.0.0"
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
+
+lodash.pickby@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.pickby/-/lodash.pickby-4.6.0.tgz#7dea21d8c18d7703a27c704c15d3b84a67e33aff"
 
 lodash@^4.0.0, lodash@^4.14.0, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"

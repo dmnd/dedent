@@ -1,14 +1,11 @@
-"use strict";
+// @flow
 
-function dedent(strings, ...values) {
-
-  let raw;
-  if (typeof strings === "string") {
-    // dedent can be used as a plain function
-    raw = [strings];
-  } else {
-    raw = strings.raw;
-  }
+export default function dedent(
+  strings: string | Array<string>,
+  ...values: Array<string>
+) {
+  // $FlowFixMe: Flow doesn't undestand .raw
+  const raw = typeof strings === "string" ? [strings] : strings.raw;
 
   // first, perform interpolation
   let result = "";
@@ -27,7 +24,7 @@ function dedent(strings, ...values) {
 
   // now strip indentation
   const lines = result.split("\n");
-  let mindent = null;
+  let mindent: number | null = null;
   lines.forEach(l => {
     let m = l.match(/^(\s+)\S+/);
     if (m) {
@@ -42,16 +39,13 @@ function dedent(strings, ...values) {
   });
 
   if (mindent !== null) {
-    result = lines.map(l => l[0] === " " ? l.slice(mindent) : l).join("\n");
+    const m = mindent; // appease Flow
+    result = lines.map(l => l[0] === " " ? l.slice(m) : l).join("\n");
   }
 
-  // dedent eats leading and trailing whitespace too
-  result = result.trim();
-
-  // handle escaped newlines at the end to ensure they don't get stripped too
-  return result.replace(/\\n/g, "\n");
-}
-
-if (typeof module !== "undefined") {
-  module.exports = dedent;
+  return result.
+    // dedent eats leading and trailing whitespace too
+    trim().
+    // handle escaped newlines at the end to ensure they don't get stripped too
+    replace(/\\n/g, "\n");
 }
