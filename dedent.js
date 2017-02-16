@@ -10,12 +10,11 @@ export default function dedent(
   // first, perform interpolation
   let result = "";
   for (let i = 0; i < raw.length; i++) {
-    result += raw[i].
+    result += raw[i]
       // join lines when there is a suppressed newline
-      replace(/\\\n[ \t]*/g, "").
-
+      .replace(/\\\n[ \t]*/g, "")
       // handle escaped backticks
-      replace(/\\`/g, "`");
+      .replace(/\\`/g, "`");
 
     if (i < values.length) {
       result += values[i];
@@ -43,9 +42,9 @@ export default function dedent(
     result = lines.map(l => l[0] === " " ? l.slice(m) : l).join("\n");
   }
 
-  return result.
+  return result
     // dedent eats leading and trailing whitespace too
-    trim().
+    .trim()
     // handle escaped newlines at the end to ensure they don't get stripped too
-    replace(/\\n/g, "\n");
+    .replace(/\\n/g, "\n");
 }
