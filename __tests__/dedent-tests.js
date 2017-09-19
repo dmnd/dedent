@@ -27,6 +27,29 @@ describe("dedent", () => {
     ).toMatchSnapshot();
   });
 
+  it("works with multiline interpolation", () => {
+    expect(
+      dd`
+        first
+          ${"second\nthird"}
+        fourth
+      `
+    ).toMatchSnapshot();
+  });
+
+  it("works with dedent interpolation", () => {
+    expect(
+      dd`
+        first
+          ${dd`
+            second
+            third
+          `}
+        fourth
+      `
+    ).toMatchSnapshot();
+  });
+
   it("works with blank first line", () => {
     expect(dd`
       Some text that I might want to indent:

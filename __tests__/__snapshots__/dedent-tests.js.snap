@@ -27,10 +27,24 @@ exports[`dedent works with blank first line 1`] = `
 That\'s all."
 `;
 
+exports[`dedent works with dedent interpolation 1`] = `
+"first
+  second
+  third
+fourth"
+`;
+
 exports[`dedent works with interpolation 1`] = `
 "first line
 second
 third"
+`;
+
+exports[`dedent works with multiline interpolation 1`] = `
+"first
+  second
+  third
+fourth"
 `;
 
 exports[`dedent works with multiple blank first lines 1`] = `

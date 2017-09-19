@@ -17,7 +17,17 @@ export default function dedent(
       .replace(/\\`/g, "`");
 
     if (i < values.length) {
-      result += values[i];
+      // Over-indent multiline interpolations so they don't 'fall' to 0
+      if (values[i].includes('\n')) {
+        // This will always match because * means 0 or more
+        const spaces_before = result.match(/ *$/)[0];
+        result += values[i]
+          .split('\n')
+          .map((str, i) => i === 0 ? str : `${spaces_before}${str}`)
+          .join('\n');
+      } else {
+        result += values[i];
+      }
     }
   }
 
