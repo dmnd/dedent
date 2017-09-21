@@ -34,6 +34,11 @@ exports[`dedent works with dedent interpolation 1`] = `
 fourth"
 `;
 
+exports[`dedent works with inline interpolation 1`] = `
+"first second
+third fourth"
+`;
+
 exports[`dedent works with interpolation 1`] = `
 "first line
 second

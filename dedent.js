@@ -19,12 +19,16 @@ export default function dedent(
     if (i < values.length) {
       // Over-indent multiline interpolations so they don't 'fall' to 0
       if (values[i].includes('\n')) {
-        // This will always match because * means 0 or more
-        const spaces_before = result.match(/ *$/)[0];
-        result += values[i]
-          .split('\n')
-          .map((str, i) => i === 0 ? str : `${spaces_before}${str}`)
-          .join('\n');
+        const spaces_before_match = result.match(/(?:^|\n)( *)$/);
+        if (spaces_before_match && typeof values[i] === 'string') {
+          const spaces_before = spaces_before_match[1];
+          result += values[i]
+            .split('\n')
+            .map((str, i) => i === 0 ? str : `${spaces_before}${str}`)
+            .join('\n');
+        } else {
+          result += values[i];
+        }
       } else {
         result += values[i];
       }

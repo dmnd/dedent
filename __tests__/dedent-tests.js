@@ -37,6 +37,14 @@ describe("dedent", () => {
     ).toMatchSnapshot();
   });
 
+  it("works with inline interpolation", () => {
+    expect(
+      dd`
+        first ${"second\nthird"} fourth
+      `
+    ).toMatchSnapshot();
+  });
+
   it("works with dedent interpolation", () => {
     expect(
       dd`
