@@ -24,11 +24,22 @@ function usageExample() {
     That's all.
   `;
 
-  const third = dedent(`
+  const third = dedent`
+    Join \
+    lines \
+    when \
+    there \
+    is \
+    a \
+    suppressed \
+    newline
+  `
+
+  const forth = dedent(`
     Wait! I lied. Dedent can also be used as a function.
   `);
 
-  return first + "\n\n" + second + "\n\n" + third;
+  return first + "\n\n" + second + "\n\n" + third + "\n\n" + forth;
 }
 ```
 
@@ -48,6 +59,8 @@ this and have it work as you expect:
   * how convenient it is
   * that I can use an indented list
     - and still have it do the right thing
+
+Join lines when there is a suppressed newline
 
 That's all.
 
