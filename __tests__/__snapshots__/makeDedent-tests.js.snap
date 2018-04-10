@@ -1,0 +1,5 @@
+exports[`makeDedent can create a dedent function with default indent 1`] = `
+"    first line
+    second
+    third"
+`;
