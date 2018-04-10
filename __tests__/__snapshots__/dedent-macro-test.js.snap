@@ -1,0 +1,76 @@
+exports[`as a function 1`] = `
+"
+import dedent from \"../macro\";
+
+dedent(\`
+  some stuff
+\`);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\"some stuff\";
+"
+`;
+
+exports[`as a template string 1`] = `
+"
+import dedent from \"../macro\";
+
+dedent\`
+  some stuff
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\"some stuff\";
+"
+`;
+
+exports[`explicit newline 1`] = `
+"
+import dedent from \"../macro\";
+
+dedent\`
+  <p>
+    Hello world!
+  </p>
+
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\"<p>\\n  Hello world!\\n</p>\";
+"
+`;
+
+exports[`expressions 1`] = `
+"
+import dedent from \"../macro\";
+
+dedent\`
+  first line
+    second
+    third
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\"first line\\n  second\\n  third\";
+"
+`;
+
+exports[`multiple indentations 1`] = `
+"
+import dedent from \"../macro\";
+
+dedent\`
+    first
+      second
+          third
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\"first\\n  second\\n      third\";
+"
+`;
