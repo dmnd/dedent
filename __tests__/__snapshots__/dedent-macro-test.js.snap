@@ -1,6 +1,6 @@
 exports[`as a function 1`] = `
 "
-import dedent from '../macro';
+import dedent from \"../macro\";
 
 dedent(\`
   some stuff
@@ -8,13 +8,13 @@ dedent(\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'some stuff';
+\"some stuff\";
 "
 `;
 
 exports[`as a template string 1`] = `
 "
-import dedent from '../macro';
+import dedent from \"../macro\";
 
 dedent\`
   some stuff
@@ -22,13 +22,13 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'some stuff';
+\"some stuff\";
 "
 `;
 
 exports[`explicit newline 1`] = `
 "
-import dedent from '../macro';
+import dedent from \"../macro\";
 
 dedent\`
   <p>
@@ -39,13 +39,13 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'<p>\n  Hello world!\n</p>';
+\"<p>\\n  Hello world!\\n</p>\";
 "
 `;
 
 exports[`expressions 1`] = `
 "
-import dedent from '../macro';
+import dedent from \"../macro\";
 
 dedent\`
   first line
@@ -55,13 +55,13 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'first line\n  second\n  third';
+\"first line\\n  second\\n  third\";
 "
 `;
 
 exports[`multiple indentations 1`] = `
 "
-import dedent from '../macro';
+import dedent from \"../macro\";
 
 dedent\`
     first
@@ -71,6 +71,6 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'first\n  second\n      third';
+\"first\\n  second\\n      third\";
 "
 `;
