@@ -25,8 +25,8 @@ export default function dedent(
   const lines = result.split("\n");
   let mindent: number | null = null;
   lines.forEach((l, i) => {
-    let m = l.match(/^(\s*)\S+/);
-    let indent = m == null ? null : m[1].length;
+    let m = l.match(/^\s*(?=\S)/);
+    let indent = m == null ? null : m[0].length;
     if (indent != null && !(i === 0 && indent === 0)) {
       if (mindent == null) {
         // this is the first indented line
