@@ -45,6 +45,12 @@ exports[`dedent works with removing same number of spaces 1`] = `
       third"
 `;
 
+exports[`dedent works with removing zero spaces 1`] = `
+"first
+   second
+      third"
+`;
+
 exports[`dedent works with suppressed newlines 1`] = `
 "first second
 third"
