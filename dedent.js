@@ -24,11 +24,11 @@ export default function dedent(
   // now strip indentation
   const lines = result.split("\n");
   let mindent: number | null = null;
-  lines.forEach(l => {
-    let m = l.match(/^(\s+)\S+/);
-    if (m) {
-      let indent = m[1].length;
-      if (!mindent) {
+  lines.forEach((l, i) => {
+    let m = l.match(/^(\s*)\S+/);
+    let indent = m == null ? null : m[1].length;
+    if (indent != null && !(i === 0 && indent === 0)) {
+      if (mindent == null) {
         // this is the first indented line
         mindent = indent;
       } else {
