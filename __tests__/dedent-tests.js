@@ -56,6 +56,16 @@ describe("dedent", () => {
     ).toMatchSnapshot();
   });
 
+  it("works with removing zero spaces", () => {
+    expect(
+      dd`
+first
+   second
+      third
+      `
+    ).toMatchSnapshot();
+  });
+
   describe("single line input", () => {
     it("works with single line input", () => {
       expect(dd`A single line of input.`).toMatchSnapshot();
