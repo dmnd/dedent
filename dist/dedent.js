@@ -1,10 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = dedent;
-function dedent(strings) {
+module.exports = function dedent(strings) {
   // $FlowFixMe: Flow doesn't undestand .raw
   var raw = typeof strings === "string" ? [strings] : strings.raw;
 
@@ -70,4 +66,4 @@ function dedent(strings) {
   .trim()
   // handle escaped newlines at the end to ensure they don't get stripped too
   .replace(/\\n/g, "\n");
-}
+};

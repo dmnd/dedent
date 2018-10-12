@@ -1,6 +1,6 @@
 // @flow
 
-export default function dedent(
+module.exports = function dedent(
   strings: string | Array<string>,
   ...values: Array<string>
 ) {
