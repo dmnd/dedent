@@ -7,6 +7,8 @@ module.exports = function dedent(
   // $FlowFixMe: Flow doesn't undestand .raw
   const raw = typeof strings === "string" ? [strings] : strings.raw;
 
+  values = values.map(x => String(x));
+
   // first, perform interpolation
   let result = "";
   for (let i = 0; i < raw.length; i++) {
