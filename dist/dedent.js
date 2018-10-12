@@ -1,25 +1,43 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = dedent;
-function dedent(strings) {
+module.exports = function dedent(strings) {
+  for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    values[_key - 1] = arguments[_key];
+  }
+
   // $FlowFixMe: Flow doesn't undestand .raw
   var raw = typeof strings === "string" ? [strings] : strings.raw;
+
+  values = values.map(function (x) {
+    return String(x);
+  });
 
   // first, perform interpolation
   var result = "";
   for (var i = 0; i < raw.length; i++) {
-    result += raw[i].
+    result += raw[i]
     // join lines when there is a suppressed newline
-    replace(/\\\n[ \t]*/g, "").
-
+    .replace(/\\\n[ \t]*/g, "")
     // handle escaped backticks
-    replace(/\\`/g, "`");
+    .replace(/\\`/g, "`");
 
-    if (i < (arguments.length <= 1 ? 0 : arguments.length - 1)) {
-      result += arguments.length <= i + 1 ? undefined : arguments[i + 1];
+    if (i < values.length) {
+      // Over-indent multiline interpolations so they don't 'fall' to 0
+      if (values[i].includes('\n')) {
+        var spaces_before_match = result.match(/(?:^|\n)( *)$/);
+        if (spaces_before_match && typeof values[i] === 'string') {
+          (function () {
+            var spaces_before = spaces_before_match[1];
+            result += values[i].split('\n').map(function (str, i) {
+              return i === 0 ? str : "" + spaces_before + str;
+            }).join('\n');
+          })();
+        } else {
+          result += values[i];
+        }
+      } else {
+        result += values[i];
+      }
     }
   }
 
@@ -40,17 +58,15 @@ function dedent(strings) {
   });
 
   if (mindent !== null) {
-    (function () {
-      var m = mindent; // appease Flow
-      result = lines.map(function (l) {
-        return l[0] === " " ? l.slice(m) : l;
-      }).join("\n");
-    })();
+    var m = mindent; // appease Flow
+    result = lines.map(function (l) {
+      return l[0] === " " ? l.slice(m) : l;
+    }).join("\n");
   }
 
-  return result.
+  return result
   // dedent eats leading and trailing whitespace too
-  trim().
+  .trim()
   // handle escaped newlines at the end to ensure they don't get stripped too
-  replace(/\\n/g, "\n");
-}
+  .replace(/\\n/g, "\n");
+};

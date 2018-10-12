@@ -1,11 +1,13 @@
 // @flow
 
-export default function dedent(
+module.exports = function dedent(
   strings: string | Array<string>,
   ...values: Array<string>
 ) {
   // $FlowFixMe: Flow doesn't undestand .raw
   const raw = typeof strings === "string" ? [strings] : strings.raw;
+
+  values = values.map(x => String(x));
 
   // first, perform interpolation
   let result = "";
@@ -17,7 +19,21 @@ export default function dedent(
       .replace(/\\`/g, "`");
 
     if (i < values.length) {
-      result += values[i];
+      // Over-indent multiline interpolations so they don't 'fall' to 0
+      if (values[i].includes('\n')) {
+        const spaces_before_match = result.match(/(?:^|\n)( *)$/);
+        if (spaces_before_match && typeof values[i] === 'string') {
+          const spaces_before = spaces_before_match[1];
+          result += values[i]
+            .split('\n')
+            .map((str, i) => i === 0 ? str : `${spaces_before}${str}`)
+            .join('\n');
+        } else {
+          result += values[i];
+        }
+      } else {
+        result += values[i];
+      }
     }
   }
 
