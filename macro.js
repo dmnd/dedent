@@ -36,7 +36,7 @@ function asTag(quasiPath, { file: { opts: { filename } } }, babel) {
     
     const strings = { raw: originalQuasis.map(quasi => quasi.value.raw) };
     const placeholders = expressions.map(() => EXPRESSION);
-    const result = dedent(strings, placeholders);
+    const result = dedent.apply(dedent, [strings].concat(placeholders));
 
     const {types: t } = babel;
     const quasis = result.split(EXPRESSION).map((value, index) => {

@@ -66,10 +66,12 @@ pluginTester({
       title: "evaluated",
       code: `
         import dedent from "../macro";
-        import one from "../external";
+        import { line, second } from "../external";
 
         dedent\`
-          1 + 1 = \${one + one}
+          first \${line}
+            \${second}
+            third
         \`;
       `
     }
