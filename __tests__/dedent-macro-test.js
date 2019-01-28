@@ -61,6 +61,17 @@ pluginTester({
             third
         \`;
       `
+    },
+    {
+      title: "evaluated",
+      code: `
+        import dedent from "../macro";
+        import one from "../external";
+
+        dedent\`
+          1 + 1 = \${one + one}
+        \`;
+      `
     }
   ]
 });

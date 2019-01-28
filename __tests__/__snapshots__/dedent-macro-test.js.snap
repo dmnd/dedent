@@ -26,6 +26,23 @@ dedent\`
 "
 `;
 
+exports[`evaluated 1`] = `
+"
+import dedent from \"../macro\";
+import one from \"../external\";
+
+dedent\`
+  1 + 1 = \${one + one}
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import one from \"../external\";
+
+\`1 + 1 = \${one + one}\`;
+"
+`;
+
 exports[`explicit newline 1`] = `
 "
 import dedent from \"../macro\";
