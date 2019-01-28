@@ -5,6 +5,7 @@
   "main": "dist/dedent.js",
   "files": [
     "dist/dedent.js",
+    "macro.js",
     "LICENSE"
   ],
   "repository": {
