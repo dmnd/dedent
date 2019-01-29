@@ -26,6 +26,27 @@ dedent\`
 "
 `;
 
+exports[`evaluated 1`] = `
+"
+import dedent from \"../macro\";
+import { line, second } from \"../external\";
+
+dedent\`
+  first \${line}
+    \${second}
+    third
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { line, second } from \"../external\";
+
+\`first \${line}
+  \${second}
+  third\`;
+"
+`;
+
 exports[`explicit newline 1`] = `
 "
 import dedent from \"../macro\";
@@ -40,6 +61,22 @@ dedent\`
       ↓ ↓ ↓ ↓ ↓ ↓
 
 \"<p>\\n  Hello world!\\n</p>\";
+"
+`;
+
+exports[`explicit newlines 1`] = `
+"
+import dedent from \"../macro\";
+
+dedent\`
+  \\n<p>
+    Hello world!
+  </p>\\n
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\"\\n<p>\\n  Hello world!\\n</p>\\n\";
 "
 `;
 

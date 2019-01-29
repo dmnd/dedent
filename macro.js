@@ -1,5 +1,5 @@
 const { createMacro, MacroError } = require("babel-plugin-macros");
-const dedent = require("./dedent.js").default;
+const dedent = require("./dist/dedent.js").default;
 
 module.exports = createMacro(prevalMacros);
 
@@ -20,10 +20,36 @@ function prevalMacros({ references, state, babel }) {
 }
 
 function asTag(quasiPath, { file: { opts: { filename } } }, babel) {
-  const string = quasiPath.parentPath.get("quasi").evaluate().value;
   const { types: t } = babel;
+  
+  const originalQuasis = quasiPath.get('quasis').map(quasi => quasi.node);
+  const strings = { raw: originalQuasis.map(quasi => quasi.value.raw) };
+  const expressions = quasiPath.get('expressions').map(expression => expression.node);
+  
+  // If no expressions, use string literal
+  // otherwise, use template literal
+  let replacement
+  if (!expressions.length) {
+    replacement = t.stringLiteral(dedent(strings));
+  } else {
+    const EXPRESSION = '---EXPR---';
 
-  quasiPath.parentPath.replaceWith(t.stringLiteral(dedent(string)));
+    const originalQuasis = quasiPath.get('quasis').map(quasi => quasi.node);
+    const expressions = quasiPath.get('expressions').map(expression => expression.node);
+    
+    const strings = { raw: originalQuasis.map(quasi => quasi.value.raw) };
+    const placeholders = expressions.map(() => EXPRESSION);
+    const result = dedent.apply(dedent, [strings].concat(placeholders));
+
+    const {types: t } = babel;
+    const quasis = result.split(EXPRESSION).map((value, index) => {
+      return t.templateElement({ raw: value, cooked: value }, originalQuasis[index].tail);
+    });
+
+    replacement = t.templateLiteral(quasis, expressions);
+  }
+
+  quasiPath.parentPath.replaceWith(replacement);
 }
 
 function asFunction(argumentsPaths, { file: { opts: { filename } } }, babel) {
