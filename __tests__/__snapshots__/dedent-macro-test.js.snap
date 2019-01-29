@@ -64,6 +64,22 @@ dedent\`
 "
 `;
 
+exports[`explicit newlines 1`] = `
+"
+import dedent from \"../macro\";
+
+dedent\`
+  \\n<p>
+    Hello world!
+  </p>\\n
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\"\\n<p>\\n  Hello world!\\n</p>\\n\";
+"
+`;
+
 exports[`expressions 1`] = `
 "
 import dedent from \"../macro\";

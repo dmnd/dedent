@@ -51,6 +51,18 @@ pluginTester({
       `
     },
     {
+      title: "explicit newlines",
+      code: `
+        import dedent from "../macro";
+
+        dedent\`
+          \\n<p>
+            Hello world!
+          </p>\\n
+        \`;
+      `
+    },
+    {
       title: "expressions",
       code: `
         import dedent from "../macro";

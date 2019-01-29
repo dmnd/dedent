@@ -21,13 +21,16 @@ function prevalMacros({ references, state, babel }) {
 
 function asTag(quasiPath, { file: { opts: { filename } } }, babel) {
   const { types: t } = babel;
-  const string = quasiPath.parentPath.get("quasi").evaluate().value;
-
-  // If evaluate succeeds (string != null), use string literal
+  
+  const originalQuasis = quasiPath.get('quasis').map(quasi => quasi.node);
+  const strings = { raw: originalQuasis.map(quasi => quasi.value.raw) };
+  const expressions = quasiPath.get('expressions').map(expression => expression.node);
+  
+  // If no expressions, use string literal
   // otherwise, use template literal
-  let replacement;
-  if (string != null) {
-    replacement = t.stringLiteral(dedent(string));
+  let replacement
+  if (!expressions.length) {
+    replacement = t.stringLiteral(dedent(strings));
   } else {
     const EXPRESSION = '---EXPR---';
 
