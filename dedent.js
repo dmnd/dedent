@@ -39,7 +39,8 @@ export default function dedent(
 
   if (mindent !== null) {
     const m = mindent; // appease Flow
-    result = lines.map(l => l[0] === " " ? l.slice(m) : l).join("\n");
+    const whitespaceCharacters = [" ", "\t"]; // [space, tab]
+    result = lines.map(l => whitespaceCharacters.includes(l[0]) ? l.slice(m) : l).join("\n");
   }
 
   return result
