@@ -97,4 +97,22 @@ describe("dedent", () => {
       </p>\n
     `).toMatchSnapshot();
   });
+
+  /* eslint-disable indent */
+  it("works with tabs for indentation", () => {
+    expect(
+      dd`
+			first
+				second
+					third
+			`
+    ).toMatchSnapshot();
+  });
+
+  it("works with escaped tabs for indentation", () => {
+    expect(
+      dd("\t\tfirst\n\t\t\tsecond\n\t\t\t\tthird")
+    ).toMatchSnapshot();
+  });
+  /* eslint-enable indent */
 });
