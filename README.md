@@ -1,4 +1,6 @@
-# Dedent
+# Dedent-Tabs
+
+> It's basicly [dedent](https://www.npmjs.com/search?q=keywords:dedent), but with support for tabs.
 
 An ES6 string tag that strips indentation from multi-line strings.
 
