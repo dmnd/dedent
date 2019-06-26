@@ -2,9 +2,9 @@
   "name": "dedent-tabs",
   "version": "0.8.0",
   "description": "An ES6 string tag that strips indentation from multi-line strings",
-  "main": "dist/dedent.js",
+  "main": "dist/dedent-tabs.js",
   "files": [
-    "dist/dedent.js",
+    "dist/dedent-tabs.js",
     "LICENSE"
   ],
   "repository": {
@@ -46,8 +46,12 @@
     "flow-bin": "^0.38.0",
     "jest": "^18.1.0"
   },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
   "scripts": {
-    "build": "babel dedent.js --out-file dist/dedent.js",
+    "build": "babel dedent.js --out-file dist/dedent-tabs.js",
     "lint": "eslint dedent.js __tests__",
     "test": "jest"
   }

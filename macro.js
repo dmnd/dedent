@@ -19,14 +19,14 @@ function prevalMacros({ references, state, babel }) {
   });
 }
 
-function asTag(quasiPath, { file: { opts: { filename } } }, babel) {
+function asTag(quasiPath, _, babel) {
   const string = quasiPath.parentPath.get("quasi").evaluate().value;
   const { types: t } = babel;
 
   quasiPath.parentPath.replaceWith(t.stringLiteral(dedent(string)));
 }
 
-function asFunction(argumentsPaths, { file: { opts: { filename } } }, babel) {
+function asFunction(argumentsPaths, _, babel) {
   const string = argumentsPaths[0].evaluate().value;
   const { types: t } = babel;
 
