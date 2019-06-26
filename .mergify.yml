@@ -1,11 +1,11 @@
 pull_request_rules:
-  - name: automatic merge for Greenkeeper pull requests on master
+  - name: automatic merge dependabot pull requests on master
     conditions:
-      - author=greenkeeper[bot]
-      - label~=greenkeeper
+      - author=dependabot[bot]
+      - label~=dependencies
       - status-success~=Travis CI
       - status-success~=WIP
-      - status-success~=codecov/project 
+      - status-success~=codecov/project
     actions:
       merge:
         method: merge
@@ -15,7 +15,7 @@ pull_request_rules:
       - label~=merge pull
       - status-success~=Travis CI
       - status-success~=WIP
-      - status-success~=codecov/project 
+      - status-success~=codecov/project
     actions:
       merge:
         method: merge
