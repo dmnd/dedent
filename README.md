@@ -43,7 +43,7 @@ function usageExample() {
 > console.log(usageExample());
 ```
 
-```
+```text
 A string that gets so long you need to break it over
 multiple lines. Luckily dedent is here to keep it
 readable without lots of spaces ending up in the string
