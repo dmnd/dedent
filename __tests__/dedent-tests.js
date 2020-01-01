@@ -46,6 +46,26 @@ describe("dedent", () => {
     ).toMatchSnapshot();
   });
 
+  it("works with blank last line", () => {
+    expect(dd`
+      Some text that I might want to indent:
+        * reasons
+        * fun
+      That's all.
+    `).toMatchSnapshot();
+  });
+
+  it("works with multiple blank last lines", () => {
+    expect(
+      dd`
+         first
+         second
+         third
+
+      `
+    ).toMatchSnapshot();
+  });
+
   it("works with removing same number of spaces", () => {
     expect(
       dd`
@@ -82,19 +102,5 @@ describe("dedent", () => {
 
   it("escapes backticks", () => {
     expect(dd`\``).toMatchSnapshot();
-  });
-
-  it("doesn't strip exlicit newlines", () => {
-    expect(dd`
-      <p>Hello world!</p>\n
-    `).toMatchSnapshot();
-  });
-
-  it("doesn't strip exlicit newlines with mindent", () => {
-    expect(dd`
-      <p>
-        Hello world!
-      </p>\n
-    `).toMatchSnapshot();
   });
 });

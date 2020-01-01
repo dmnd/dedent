@@ -26,23 +26,6 @@ dedent\`
 "
 `;
 
-exports[`explicit newline 1`] = `
-"
-import dedent from \"../macro\";
-
-dedent\`
-  <p>
-    Hello world!
-  </p>
-
-\`;
-
-      ↓ ↓ ↓ ↓ ↓ ↓
-
-\"<p>\\n  Hello world!\\n</p>\";
-"
-`;
-
 exports[`expressions 1`] = `
 "
 import dedent from \"../macro\";
