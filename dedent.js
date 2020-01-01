@@ -42,9 +42,8 @@ export default function dedent(
     result = lines.map(l => l[0] === " " ? l.slice(m) : l).join("\n");
   }
 
-  return result
-    // dedent eats leading and trailing whitespace too
-    .trim()
-    // handle escaped newlines at the end to ensure they don't get stripped too
-    .replace(/\\n/g, "\n");
+  if (result.startsWith('\n')) {
+    result = result.substr(1);
+  }
+  return result.replace(/^((.|\n)*)\n[ \t]*?$/, '$1');
 }

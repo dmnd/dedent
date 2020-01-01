@@ -27,18 +27,6 @@ pluginTester({
       `
     },
     {
-      title: "explicit newline",
-      code: `
-        import dedent from "../macro";
-
-        dedent\`
-          <p>
-            Hello world!
-          </p>\n
-        \`;
-      `
-    },
-    {
       title: "multiple indentations",
       code: `
         import dedent from "../macro";

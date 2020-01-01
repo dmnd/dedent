@@ -1,17 +1,5 @@
 exports[`dedent can be used as a function 1`] = `"A test argument."`;
 
-exports[`dedent doesn't strip exlicit newlines 1`] = `
-"<p>Hello world!</p>
-"
-`;
-
-exports[`dedent doesn't strip exlicit newlines with mindent 1`] = `
-"<p>
-  Hello world!
-</p>
-"
-`;
-
 exports[`dedent escapes backticks 1`] = `"\`"`;
 
 exports[`dedent single line input works with single line and closing backtick on newline 1`] = `"A single line of input."`;
@@ -27,6 +15,13 @@ exports[`dedent works with blank first line 1`] = `
 That\'s all."
 `;
 
+exports[`dedent works with blank last line 1`] = `
+"Some text that I might want to indent:
+  * reasons
+  * fun
+That\'s all."
+`;
+
 exports[`dedent works with interpolation 1`] = `
 "first line
 second
@@ -34,9 +29,17 @@ third"
 `;
 
 exports[`dedent works with multiple blank first lines 1`] = `
-"first
+"
+first
 second
 third"
+`;
+
+exports[`dedent works with multiple blank last lines 1`] = `
+"first
+second
+third
+"
 `;
 
 exports[`dedent works with removing same number of spaces 1`] = `
