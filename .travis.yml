@@ -4,7 +4,6 @@ branches:
     - master
     - /^greenkeeper/.*$/
 node_js:
-  - "6"
   - "8"
   - "10"
   - "lts/*"
