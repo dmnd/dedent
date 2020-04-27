@@ -6,7 +6,10 @@
 
 [![Build Status](https://travis-ci.com/adrianjost/dedent-tabs.svg?branch=master)](https://travis-ci.com/adrianjost/dedent-tabs)
 [![Code Coverage](https://codecov.io/gh/adrianjost/dedent-tabs/branch/master/graph/badge.svg)](https://codecov.io/gh/adrianjost/dedent-tabs)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7e343810585c48f1ac7c2acdb8bdad5d)](https://www.codacy.com/app/adrianjost/dedent-tabs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=adrianjost/dedent-tabs&amp;utm_campaign=Badge_Grade) [![Greenkeeper badge](https://badges.greenkeeper.io/adrianjost/dedent-tabs.svg)](https://greenkeeper.io/)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7e343810585c48f1ac7c2acdb8bdad5d)](https://www.codacy.com/app/adrianjost/dedent-tabs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=adrianjost/dedent-tabs&amp;utm_campaign=Badge_Grade)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=adrianjost/dedent-tabs)](https://dependabot.com)
+[![Dependency Status](https://david-dm.org/adrianjost/dedent-tabs.svg)](https://david-dm.org/adrianjost/dedent-tabs)
+[![Dependency Status](https://david-dm.org/adrianjost/dedent-tabs/dev-status.svg)](https://david-dm.org/adrianjost/dedent-tabs?type=dev)
 
 > It's basicly [dedent](https://www.npmjs.com/package/dedent), but with support for tabs.
 
