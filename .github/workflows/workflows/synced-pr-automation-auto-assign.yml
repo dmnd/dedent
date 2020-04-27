@@ -1,0 +1,14 @@
+# GENERATED CONTENT
+# remove repo from adrianjost/.github/synced/workflows/generator.js before editing
+name: PR Automation
+'on':
+  pull_request:
+    types:
+      - opened
+jobs:
+  assign-author:
+    name: Assign author to PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign author to PR
+        uses: technote-space/assign-author@v1
