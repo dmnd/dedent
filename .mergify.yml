@@ -1,27 +1,53 @@
+# GENERATED CONTENT
+# remove repo from adrianjost/.github/synced/workflows/generator.js before editing
 pull_request_rules:
-  - name: automatic merge dependabot pull requests on master
+  - name: label PRs with conflicts
     conditions:
-      - author=dependabot[bot]
-      - label~=dependencies
-      - status-success~=Travis CI
-      - status-success~=WIP
-      - status-success~=codecov/project
+      - conflict
+    actions:
+      label:
+        add:
+          - has conflicts
+  - name: remove has conflicts label if conflicts got resolved
+    conditions:
+      - label~=has conflicts
+      - '-conflict'
+    actions:
+      label:
+        remove:
+          - has conflicts
+  - name: let @adrianjost recreate dependabot PRs with conflicts
+    conditions:
+      - 'author~=dependabot(-preview)?\[bot\]'
+      - conflict
+    actions:
+      comment:
+        message: '@adrianjost tell dependabot to recreate PR'
+  - name: auto merge passing Dependabot pull requests
+    conditions:
+      - 'author~=dependabot(-preview)?\[bot\]'
+    actions:
+      merge:
+        method: squash
+        strict: smart
+  - name: auto merge when ready to merge label is set
+    conditions:
+      - label=ready to merge
     actions:
       merge:
         method: merge
-        strict: true
-  - name: automatic merge on CI success and review
-    conditions:
-      - label~=merge pull
-      - status-success~=Travis CI
-      - status-success~=WIP
-      - status-success~=codecov/project
-    actions:
-      merge:
-        method: merge
-        strict: true
-  - name: delete merged branch
+        strict: smart
+  - name: remove ready to merge when merged
     conditions:
       - merged
+      - label=ready to merge
+    actions:
+      label:
+        remove:
+          - ready to merge
+  - name: delete merged branches
+    conditions:
+      - merged
+      - label!=WIP
     actions:
       delete_head_branch: {}
