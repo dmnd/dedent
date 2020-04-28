@@ -22,7 +22,7 @@ pull_request_rules:
       - conflict
     actions:
       comment:
-        message: '@adrianjost tell dependabot to recreate PR'
+        message: Someone with write access should tell dependabot to recreate this PR.
   - name: auto merge passing Dependabot pull requests
     conditions:
       - 'author~=dependabot(-preview)?\[bot\]'
