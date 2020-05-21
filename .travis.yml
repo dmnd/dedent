@@ -3,8 +3,8 @@ branches:
   only:
     - master
 node_js:
-  - "8"
   - "10"
+  - "12"
   - "lts/*"
   - "node"
 install:
