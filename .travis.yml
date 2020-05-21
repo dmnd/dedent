@@ -10,10 +10,8 @@ node_js:
 install:
   - npm ci
 script:
-  - npm run lint:ci
   - npm run test
   - npx codecov
-  - npm run build
 cache:
   directories:
     - node_modules
