@@ -16,6 +16,13 @@ pull_request_rules:
       label:
         remove:
           - has conflicts
+  - name: let @adrianjost recreate dependabot PRs with conflicts
+    conditions:
+      - 'author~=dependabot(-preview)?\[bot\]'
+      - conflict
+    actions:
+      comment:
+        message: Someone with write access should tell dependabot to recreate this PR.
   - name: auto merge passing Dependabot pull requests
     conditions:
       - 'author~=dependabot(-preview)?\[bot\]'
