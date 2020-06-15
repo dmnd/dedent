@@ -29,14 +29,14 @@ pull_request_rules:
     actions:
       merge:
         method: squash
-        strict: smart
+        strict: smart+fasttrack
   - name: auto merge when ready to merge label is set
     conditions:
       - label=ready to merge
     actions:
       merge:
         method: merge
-        strict: smart
+        strict: smart+fasttrack
   - name: remove ready to merge when merged
     conditions:
       - merged
