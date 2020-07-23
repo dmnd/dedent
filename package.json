@@ -47,7 +47,7 @@
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-minify": "^0.5.1",
     "eslint": "^7.0.0",
-    "flow-bin": "^0.129.0",
+    "flow-bin": "^0.130.0",
     "jest": "^26.0.1"
   },
   "jest": {
