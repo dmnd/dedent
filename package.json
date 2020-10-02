@@ -43,7 +43,7 @@
     "@babel/preset-env": "^7.8.3",
     "babel-eslint": "^10.0.3",
     "babel-plugin-macros": "^2.0.0",
-    "babel-plugin-tester": "^9.1.0",
+    "babel-plugin-tester": "^10.0.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-minify": "^0.5.1",
     "eslint": "^7.0.0",
