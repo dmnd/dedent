@@ -4,11 +4,10 @@
   "description": "An ES6 string tag that strips indentation from multi-line strings",
   "main": "./dist/dedent.js",
   "module": "./dist/dedent.mjs",
-  "types": "./dedent.d.ts",
   "files": [
     "dist",
     "macro.js",
-    "dedent.d.ts",
+    "index.d.ts",
     "macro.d.ts",
     "README.md",
     "LICENSE"

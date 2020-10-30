@@ -1,4 +1,2 @@
-declare module "dedent/macro" {
-  import dedent from "dedent";
-  export default dedent;
-}
+import dedent from "dedent";
+export default dedent;
