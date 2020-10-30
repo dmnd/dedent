@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`dedent can be used as a function 1`] = `"A test argument."`;
 
 exports[`dedent doesn't strip exlicit newlines 1`] = `
@@ -24,7 +26,7 @@ exports[`dedent works with blank first line 1`] = `
 "Some text that I might want to indent:
   * reasons
   * fun
-That\'s all."
+That's all."
 `;
 
 exports[`dedent works with interpolation 1`] = `
