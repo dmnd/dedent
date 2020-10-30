@@ -24,7 +24,8 @@ export default function dedent(
   // now strip indentation
   const lines = result.split("\n");
   let mindent: number | null = null;
-  lines.forEach(l => { let m = l.match(/^(\s+)\S+/);
+  lines.forEach(l => {
+    let m = l.match(/^(\s+)\S+/);
     if (m) {
       let indent = m[1].length;
       if (!mindent) {
