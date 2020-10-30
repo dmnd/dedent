@@ -1,5 +1,5 @@
 const { createMacro, MacroError } = require("babel-plugin-macros");
-const dedent = require("./dedent.js").default;
+const dedent = require("./dist/dedent.js").default;
 
 module.exports = createMacro(prevalMacros);
 

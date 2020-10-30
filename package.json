@@ -2,9 +2,14 @@
   "name": "dedent",
   "version": "0.7.0",
   "description": "An ES6 string tag that strips indentation from multi-line strings",
-  "main": "dist/dedent.js",
+  "main": "./dist/dedent.js",
+  "module": "./dist/dedent.mjs",
   "files": [
-    "dist/dedent.js",
+    "dist",
+    "macro.js",
+    "index.d.ts",
+    "macro.d.ts",
+    "README.md",
     "LICENSE"
   ],
   "repository": {
@@ -27,22 +32,28 @@
     "url": "https://github.com/dmnd/dedent/issues"
   },
   "homepage": "https://github.com/dmnd/dedent",
+  "dependencies": {
+    "babel-plugin-macros": "^2.8.0"
+  },
   "devDependencies": {
-    "babel-cli": "^6.22.2",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-flow-comments": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "babel-eslint": "^7.1.1",
-    "babel-plugin-macros": "^2.0.0",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-plugin-tester": "^5.0.0",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-es2016": "^6.22.0",
-    "babel-preset-es2017": "^6.22.0",
-    "eslint": "^3.14.1",
-    "flow-bin": "^0.38.0",
-    "jest": "^18.1.0"
+    "babel-plugin-tester": "^10.0.0",
+    "escope": "^3.6.0",
+    "eslint": "^7.12.1",
+    "flow-bin": "^0.137.0",
+    "jest": "^26.6.1"
   },
   "scripts": {
-    "build": "babel dedent.js --out-file dist/dedent.js",
+    "prepack": "yarn build",
+    "build:legacy": "BABEL_ENV=legacy babel dedent.js --out-file dist/dedent.js",
+    "build:modern": "BABEL_ENV=modern babel dedent.js --out-file dist/dedent.mjs",
+    "build": "yarn build:legacy && yarn build:modern",
     "lint": "eslint dedent.js __tests__",
+    "flow": "flow",
     "test": "jest"
   }
 }
