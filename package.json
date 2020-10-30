@@ -6,11 +6,12 @@
   "module": "./dist/dedent.mjs",
   "types": "./dedent.d.ts",
   "files": [
-    "./dist",
-    "./macro.js",
-    "./macro.d.ts",
-    "./README.md",
-    "./LICENSE"
+    "dist",
+    "macro.js",
+    "dedent.d.ts",
+    "macros.d.ts",
+    "README.md",
+    "LICENSE"
   ],
   "repository": {
     "type": "git",
