@@ -32,13 +32,15 @@
     "url": "https://github.com/dmnd/dedent/issues"
   },
   "homepage": "https://github.com/dmnd/dedent",
+  "dependencies": {
+    "babel-plugin-macros": "^2.8.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/plugin-transform-flow-comments": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "babel-eslint": "^7.1.1",
-    "babel-plugin-macros": "^2.8.0",
     "babel-plugin-tester": "^10.0.0",
     "escope": "^3.6.0",
     "eslint": "^7.12.1",
