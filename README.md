@@ -75,8 +75,10 @@ MIT
 ## Release new version
 
 1. `npm ci` - for a clean environment
-1. `npm run build` - to create the bundle to release
+1. `npm version patch|minor|major` - Bump version https://docs.npmjs.com/cli/v6/commands/npm-version
 1. `npm run lint` - to ensure a consistent code style
 1. `npm run test` - to make sure everything is working
+1. Bump version
+1. `npm run build` - to create the bundle to release
 1. `git commit -m "update bundle"` - to make sure the latest bundle is in the `dist` directory
 1. `npm publish`
