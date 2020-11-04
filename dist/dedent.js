@@ -41,9 +41,8 @@ function dedent(strings) {
   if (mindent !== null) {
     (function () {
       var m = mindent; // appease Flow
-      var whitespaceCharacters = [" ", "\t"]; // [space, tab]
       result = lines.map(function (l) {
-        return whitespaceCharacters.includes(l[0]) ? l.slice(m) : l;
+        return l[0] === " " || l[0] === "\t" ? l.slice(m) : l;
       }).join("\n");
     })();
   }
