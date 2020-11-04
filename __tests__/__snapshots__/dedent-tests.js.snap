@@ -27,6 +27,12 @@ exports[`dedent works with blank first line 1`] = `
 That\'s all."
 `;
 
+exports[`dedent works with escaped tabs for indentation 1`] = `
+"first
+	second
+		third"
+`;
+
 exports[`dedent works with interpolation 1`] = `
 "first line
 second
@@ -48,6 +54,12 @@ exports[`dedent works with removing same number of spaces 1`] = `
 exports[`dedent works with suppressed newlines 1`] = `
 "first second
 third"
+`;
+
+exports[`dedent works with tabs for indentation 1`] = `
+"first
+	second
+		third"
 `;
 
 exports[`dedent works without interpolation 1`] = `
