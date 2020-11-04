@@ -1,6 +1,6 @@
 {
   "name": "dedent-tabs",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "An ES6 string tag that strips indentation from multi-line strings",
   "main": "dist/dedent-tabs.js",
   "files": [

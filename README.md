@@ -12,7 +12,7 @@
 [![Dependency Status](https://david-dm.org/adrianjost/dedent-tabs.svg)](https://david-dm.org/adrianjost/dedent-tabs)
 [![Dependency Status](https://david-dm.org/adrianjost/dedent-tabs/dev-status.svg)](https://david-dm.org/adrianjost/dedent-tabs?type=dev)
 
-> It's basicly [dedent](https://www.npmjs.com/package/dedent), but with support for tabs.
+> It's basicly [dedent](https://www.npmjs.com/package/dedent), but with **support for tabs and still maintained**.
 
 An ES6 string tag that strips indentation from multi-line strings.
 
@@ -71,3 +71,12 @@ Wait! I lied. Dedent can also be used as a function.
 ## License
 
 MIT
+
+## Release new version
+
+1. `npm ci` - for a clean environment
+1. `npm run build` - to create the bundle to release
+1. `npm run lint` - to ensure a consistent code style
+1. `npm run test` - to make sure everything is working
+1. `git commit -m "update bundle"` - to make sure the latest bundle is in the `dist` directory
+1. `npm publish`
