@@ -14,7 +14,11 @@ export default function dedent(
       // join lines when there is a suppressed newline
       .replace(/\\\n[ \t]*/g, "")
       // handle escaped backticks
-      .replace(/\\`/g, "`");
+      .replace(/\\`/g, "`")
+      // handle escaped dollar signs
+      .replace(/\\\$/g, "$")
+      // handle escaped open braces
+      .replace(/\\\{/g, "{");
 
     if (i < values.length) {
       result += values[i];

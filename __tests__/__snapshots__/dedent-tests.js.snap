@@ -16,6 +16,8 @@ exports[`dedent doesn't strip exlicit newlines with mindent 1`] = `
 
 exports[`dedent escapes backticks 1`] = `"\`"`;
 
+exports[`dedent escapes dollar signs and open braces 1`] = `"The following template expression should not be evaluated and escape correctly: \${test expression}"`;
+
 exports[`dedent single line input works with single line and closing backtick on newline 1`] = `"A single line of input."`;
 
 exports[`dedent single line input works with single line and inline closing backtick 1`] = `"A single line of input."`;

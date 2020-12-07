@@ -58,7 +58,7 @@
     "build": "babel dedent.js --out-file dist/dedent-tabs.js",
     "lint": "eslint dedent.js __tests__",
     "lint:ci": "npm run lint",
-    "test": "jest"
+    "test": "jest __tests__/*"
   },
   "dependencies": {}
 }
