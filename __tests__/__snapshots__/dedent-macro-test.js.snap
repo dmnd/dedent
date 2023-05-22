@@ -1,34 +1,41 @@
-exports[`as a function 1`] = `
-"
-import dedent from \"../macro\";
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`macros 1. as a function: 1. as a function 1`] = `
+
+
+import dedent from "../macro";
 
 dedent(\`
   some stuff
 \`);
+      
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\"some stuff\";
-"
+"some stuff";
+
 `;
 
-exports[`as a template string 1`] = `
-"
-import dedent from \"../macro\";
+exports[`macros 2. as a template string: 2. as a template string 1`] = `
+
+
+import dedent from "../macro";
 
 dedent\`
   some stuff
 \`;
+      
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\"some stuff\";
-"
+"some stuff";
+
 `;
 
-exports[`explicit newline 1`] = `
-"
-import dedent from \"../macro\";
+exports[`macros 3. explicit newline: 3. explicit newline 1`] = `
+
+
+import dedent from "../macro";
 
 dedent\`
   <p>
@@ -36,41 +43,46 @@ dedent\`
   </p>
 
 \`;
+      
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\"<p>\\n  Hello world!\\n</p>\";
-"
+"<p>\\n  Hello world!\\n</p>";
+
 `;
 
-exports[`expressions 1`] = `
-"
-import dedent from \"../macro\";
+exports[`macros 4. multiple indentations: 4. multiple indentations 1`] = `
 
-dedent\`
-  first line
-    second
-    third
-\`;
 
-      ↓ ↓ ↓ ↓ ↓ ↓
-
-\"first line\\n  second\\n  third\";
-"
-`;
-
-exports[`multiple indentations 1`] = `
-"
-import dedent from \"../macro\";
+import dedent from "../macro";
 
 dedent\`
     first
       second
           third
 \`;
+      
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\"first\\n  second\\n      third\";
-"
+"first\\n  second\\n      third";
+
+`;
+
+exports[`macros 5. expressions: 5. expressions 1`] = `
+
+
+import dedent from "../macro";
+
+dedent\`
+  first line
+    second
+    third
+\`;
+      
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+"first line\\n  second\\n  third";
+
 `;

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = dedent;
+exports["default"] = dedent;
 function dedent(strings) {
   // $FlowFixMe: Flow doesn't undestand .raw
   var raw = typeof strings === "string" ? [strings] : strings.raw;
@@ -16,9 +16,8 @@ function dedent(strings) {
     .replace(/\\\n[ \t]*/g, "")
     // handle escaped backticks
     .replace(/\\`/g, "`");
-
     if (i < (arguments.length <= 1 ? 0 : arguments.length - 1)) {
-      result += arguments.length <= i + 1 ? undefined : arguments[i + 1];
+      result += i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1];
     }
   }
 
@@ -37,16 +36,12 @@ function dedent(strings) {
       }
     }
   });
-
   if (mindent !== null) {
-    (function () {
-      var m = mindent; // appease Flow
-      result = lines.map(function (l) {
-        return l[0] === " " || l[0] === "\t" ? l.slice(m) : l;
-      }).join("\n");
-    })();
+    var m = mindent; // appease Flow
+    result = lines.map(function (l) {
+      return l[0] === " " || l[0] === "\t" ? l.slice(m) : l;
+    }).join("\n");
   }
-
   return result
   // dedent eats leading and trailing whitespace too
   .trim()
