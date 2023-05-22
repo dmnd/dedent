@@ -11,12 +11,11 @@ function dedent(strings) {
   // first, perform interpolation
   var result = "";
   for (var i = 0; i < raw.length; i++) {
-    result += raw[i].
+    result += raw[i]
     // join lines when there is a suppressed newline
-    replace(/\\\n[ \t]*/g, "").
-
+    .replace(/\\\n[ \t]*/g, "")
     // handle escaped backticks
-    replace(/\\`/g, "`");
+    .replace(/\\`/g, "`");
 
     if (i < (arguments.length <= 1 ? 0 : arguments.length - 1)) {
       result += arguments.length <= i + 1 ? undefined : arguments[i + 1];
@@ -43,14 +42,14 @@ function dedent(strings) {
     (function () {
       var m = mindent; // appease Flow
       result = lines.map(function (l) {
-        return l[0] === " " ? l.slice(m) : l;
+        return l[0] === " " || l[0] === "\t" ? l.slice(m) : l;
       }).join("\n");
     })();
   }
 
-  return result.
+  return result
   // dedent eats leading and trailing whitespace too
-  trim().
+  .trim()
   // handle escaped newlines at the end to ensure they don't get stripped too
-  replace(/\\n/g, "\n");
+  .replace(/\\n/g, "\n");
 }
