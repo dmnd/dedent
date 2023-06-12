@@ -4,11 +4,12 @@
     "node": true,
     "es6": true
   },
-  "parser": "babel-eslint",
+  "parser": "hermes-eslint",
   "parserOptions": {
     "sourceType": "module"
   },
-  "extends": "eslint:recommended",
+  "plugins": ["ft-flow"],
+  "extends": ["eslint:recommended", "plugin:ft-flow/recommended"],
   "rules": {
     "semi": [2, "always"],
     "curly": [2, "multi-line"]
