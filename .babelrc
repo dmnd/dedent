@@ -1,4 +1,43 @@
 {
-  "presets": ["@babel/preset-env"],
-  "plugins": ["transform-flow-strip-types"]
+  "env": {
+    "legacy": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": "commonjs",
+            "targets": {
+              "node": 10
+            }
+          }
+        ]
+      ]
+    },
+    "modern": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": false,
+            "bugfixes": true,
+            "targets": {
+              "esmodules": true
+            }
+          }
+        ]
+      ]
+    }
+  },
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs",
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-transform-flow-comments"]
 }
