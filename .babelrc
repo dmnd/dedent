@@ -1,6 +1,7 @@
 {
   "env": {
     "legacy": {
+      "plugins": [["add-module-exports", { "addDefaultProperty": true }]],
       "presets": [
         [
           "@babel/preset-env",
