@@ -13,8 +13,10 @@ export default function dedent(
     result += raw[i]
       // join lines when there is a suppressed newline
       .replace(/\\\n[ \t]*/g, "")
-      // handle escaped backticks
-      .replace(/\\`/g, "`");
+      // handle escaped backticks and interpolation characters
+      .replace(/\\`/g, "`")
+      .replace(/\\\$/g, "$")
+      .replace(/\\{/g, "{");
 
     if (i < values.length) {
       result += values[i];
