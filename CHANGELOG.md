@@ -24,7 +24,7 @@ This version was given the `beta` tag in npm.
 - build: re-run build to refresh dist/dedent.js (#38)
 
 Note: although this was a new major version, it contains no breaking changes from 0.x.
-The 1.x intent is to signal that the API is stable - not to break from any 0.x points.
+The versioning intent was purely to signal that the API is stable.
 
 ## 0.8.0-beta
 
