@@ -1,34 +1,33 @@
-import pluginTester from "babel-plugin-tester";
 import plugin from "babel-plugin-macros";
+import pluginTester from "babel-plugin-tester";
 
 pluginTester({
-  plugin,
-  snapshot: true,
-  babelOptions: { filename: __filename },
-  tests: [
-    {
-      title: "as a function",
-      code: `
+	babelOptions: { filename: __filename },
+	plugin,
+	snapshot: true,
+	tests: [
+		{
+			code: `
         import dedent from "../macro";
 
         dedent(\`
           some stuff
         \`);
-      `
-    },
-    {
-      title: "as a template string",
-      code: `
+      `,
+			title: "as a function",
+		},
+		{
+			code: `
         import dedent from "../macro";
 
         dedent\`
           some stuff
         \`;
-      `
-    },
-    {
-      title: "explicit newline",
-      code: `
+      `,
+			title: "as a template string",
+		},
+		{
+			code: `
         import dedent from "../macro";
 
         dedent\`
@@ -36,11 +35,11 @@ pluginTester({
             Hello world!
           </p>\n
         \`;
-      `
-    },
-    {
-      title: "multiple indentations",
-      code: `
+      `,
+			title: "explicit newline",
+		},
+		{
+			code: `
         import dedent from "../macro";
 
         dedent\`
@@ -48,11 +47,11 @@ pluginTester({
               second
                   third
         \`;
-      `
-    },
-    {
-      title: "expressions",
-      code: `
+      `,
+			title: "multiple indentations",
+		},
+		{
+			code: `
         import dedent from "../macro";
 
         dedent\`
@@ -60,7 +59,8 @@ pluginTester({
             ${"second"}
             third
         \`;
-      `
-    }
-  ]
+      `,
+			title: "expressions",
+		},
+	],
 });

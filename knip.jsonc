@@ -1,0 +1,6 @@
+{
+	"$schema": "https://unpkg.com/knip@next/schema.json",
+	"entry": "src/index.ts!",
+	"ignoreBinaries": ["dedupe", "gh"],
+	"project": "src/**/*.ts!"
+}

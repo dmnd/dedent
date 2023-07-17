@@ -1,0 +1,92 @@
+{
+	"badgeTemplate": "<img alt=\"All Contributors: <%= contributors.length %>\" src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-21bb42.svg\" />",
+	"commit": false,
+	"commitConvention": "angular",
+	"contributors": [
+		{
+			"login": "JoshuaKGoldberg",
+			"name": "Josh Goldberg ✨",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
+			"profile": "http://www.joshuakgoldberg.com/",
+			"contributions": [
+				"code",
+				"doc",
+				"maintenance",
+				"projectManagement",
+				"tool"
+			]
+		},
+		{
+			"login": "dmnd",
+			"name": "Desmond Brand",
+			"avatar_url": "https://avatars.githubusercontent.com/u/4427?v=4",
+			"profile": "https://synthesis.com/",
+			"contributions": [
+				"bug",
+				"code",
+				"doc",
+				"maintenance",
+				"projectManagement",
+				"tool"
+			]
+		},
+		{
+			"login": "G-Rath",
+			"name": "Gareth Jones",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3151613?v=4",
+			"profile": "https://github.com/G-Rath",
+			"contributions": ["code"]
+		},
+		{
+			"login": "jlarmstrongiv",
+			"name": "John L. Armstrong IV",
+			"avatar_url": "https://avatars.githubusercontent.com/u/20903247?v=4",
+			"profile": "https://github.com/jlarmstrongiv",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "cometkim",
+			"name": "Hyeseong Kim",
+			"avatar_url": "https://avatars.githubusercontent.com/u/9696352?v=4",
+			"profile": "https://blog.cometkim.kr/",
+			"contributions": ["tool"]
+		},
+		{
+			"login": "adrianjost",
+			"name": "Adrian Jost",
+			"avatar_url": "https://avatars.githubusercontent.com/u/22987140?v=4",
+			"profile": "https://adrianjost.dev/",
+			"contributions": ["code"]
+		},
+		{
+			"login": "Haroenv",
+			"name": "Haroen Viaene",
+			"avatar_url": "https://avatars.githubusercontent.com/u/6270048?v=4",
+			"profile": "https://haroen.me/",
+			"contributions": ["code"]
+		},
+		{
+			"login": "phenomnomnominal",
+			"name": "Craig Spence",
+			"avatar_url": "https://avatars.githubusercontent.com/u/1086286?v=4",
+			"profile": "https://github.com/phenomnomnominal",
+			"contributions": ["code", "bug", "doc"]
+		},
+		{
+			"login": "pratapvardhan",
+			"name": "Pratap Vardhan",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3757165?v=4",
+			"profile": "https://pratapvardhan.com/",
+			"contributions": ["bug", "code"]
+		}
+	],
+	"contributorsPerLine": 7,
+	"contributorsSortAlphabetically": true,
+	"files": ["README.md"],
+	"imageSize": 100,
+	"projectName": "dedent",
+	"projectOwner": "dmnd",
+	"repoHost": "https://github.com",
+	"repoType": "github"
+}
+

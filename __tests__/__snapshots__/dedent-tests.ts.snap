@@ -2,12 +2,12 @@
 
 exports[`dedent can be used as a function 1`] = `"A test argument."`;
 
-exports[`dedent doesn't strip exlicit newlines 1`] = `
+exports[`dedent doesn't strip explicit newlines 1`] = `
 "<p>Hello world!</p>
 "
 `;
 
-exports[`dedent doesn't strip exlicit newlines with mindent 1`] = `
+exports[`dedent doesn't strip explicit newlines with mindent 1`] = `
 "<p>
   Hello world!
 </p>
