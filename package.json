@@ -1,6 +1,6 @@
 {
   "name": "dedent",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "An ES6 string tag that strips indentation from multi-line strings",
   "main": "dist/dedent.js",
   "types": "./dist/dedent.d.ts",
