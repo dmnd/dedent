@@ -1,1 +1,4 @@
 dist/
+
+# https://github.com/dmnd/dedent/issues/52
+macro.js

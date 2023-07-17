@@ -9,5 +9,6 @@
     "strict": true,
     "target": "ESNext"
   },
-  "exclude": ["dist"]
+  "exclude": ["dist"],
+  "include": [".eslintrc.js", "*.ts", "__tests__"]
 }
