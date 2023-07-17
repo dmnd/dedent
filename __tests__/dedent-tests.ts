@@ -1,4 +1,4 @@
-import dd from "..";
+import dd from "../dedent";
 
 describe("dedent", () => {
   it("works without interpolation", () => {
