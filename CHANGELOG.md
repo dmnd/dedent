@@ -23,6 +23,9 @@ This version was given the `beta` tag in npm.
 - build: publish ESM and .d.ts (#32)
 - build: re-run build to refresh dist/dedent.js (#38)
 
+Note: although this was a new major version, it contains no breaking changes from 0.x.
+The versioning intent was purely to signal that the API is stable.
+
 ## 0.8.0-beta
 
 - enable tab compatibility (#28)
