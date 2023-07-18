@@ -3,6 +3,10 @@
 This changelog represents changes merged in 2023.
 Older changes can be viewed in https://github.com/dmnd/dedent/commits/main.
 
+## 1.2.0
+
+- fix(dependencies): move babel-plugin-macros to optional peer (#60)
+
 ## 1.1.0
 
 - build: convert dedent.ts and tests to TypeScript (#51)
