@@ -3,10 +3,6 @@
 This changelog represents changes merged in 2023.
 Older changes can be viewed in https://github.com/dmnd/dedent/commits/main.
 
-## 1.2.0
-
-- fix: add missing exports field to package.json (#59)
-
 ## 1.1.0
 
 - build: convert dedent.ts and tests to TypeScript (#51)
