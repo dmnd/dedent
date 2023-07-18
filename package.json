@@ -35,8 +35,13 @@
     "url": "https://github.com/dmnd/dedent/issues"
   },
   "homepage": "https://github.com/dmnd/dedent",
-  "dependencies": {
+  "peerDependencies": {
     "babel-plugin-macros": "^3.1.0"
+  },
+  "peerDependenciesMeta": {
+    "babel-plugin-macros": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
