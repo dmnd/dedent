@@ -1,6 +1,4 @@
-// @flow
-
-import dd from '../dedent';
+import dd from "../dedent";
 
 describe("dedent", () => {
   it("works without interpolation", () => {
@@ -69,15 +67,16 @@ describe("dedent", () => {
 
     it("works with single line and inline closing backtick", () => {
       expect(dd`
-        A single line of input.`
-      ).toMatchSnapshot();
+        A single line of input.`).toMatchSnapshot();
     });
   });
 
   it("can be used as a function", () => {
-    expect(dd(`
+    expect(
+      dd(`
       A test argument.
-    `)).toMatchSnapshot();
+    `)
+    ).toMatchSnapshot();
   });
 
   it("escapes backticks", () => {
@@ -122,9 +121,7 @@ describe("dedent", () => {
   });
 
   it("works with escaped tabs for indentation", () => {
-    expect(
-      dd("\t\tfirst\n\t\t\tsecond\n\t\t\t\tthird")
-    ).toMatchSnapshot();
+    expect(dd("\t\tfirst\n\t\t\tsecond\n\t\t\t\tthird")).toMatchSnapshot();
   });
   /* eslint-enable indent */
 });
