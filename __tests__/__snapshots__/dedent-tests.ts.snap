@@ -60,7 +60,8 @@ exports[`dedent works with removing same number of spaces 1`] = `
 `;
 
 exports[`dedent works with suppressed newlines 1`] = `
-"first second
+"first \\
+second
 third"
 `;
 
