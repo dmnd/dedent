@@ -14,8 +14,9 @@ export default function dedent(
   let result = "";
   for (let i = 0; i < raw.length; i++) {
     result += raw[i]
-      // handle escaped backticks and interpolation characters
+      // handle escaped newlines, backticks, and interpolation characters
       .replace(/\\`/g, "`")
+      .replace(/\\\n[ \t]*/g, "")
       .replace(/\\\$/g, "$")
       .replace(/\\{/g, "{");
 
