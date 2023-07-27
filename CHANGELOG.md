@@ -3,6 +3,10 @@
 This changelog represents changes merged in 2023.
 Older changes can be viewed in https://github.com/dmnd/dedent/commits/main.
 
+## 1.3.0
+
+- fix: add missing exports field to package.json (#59)
+
 ## 1.2.0
 
 - fix(dependencies): move babel-plugin-macros to optional peer (#60)
