@@ -5,6 +5,13 @@
   "main": "dist/dedent.js",
   "types": "./dist/dedent.d.ts",
   "module": "./dist/dedent.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/dedent.d.ts",
+      "import": "./dist/dedent.mjs",
+      "default": "./dist/dedent.js"
+    }
+  },
   "files": [
     "dist/dedent.d.ts",
     "dist/dedent.js",
