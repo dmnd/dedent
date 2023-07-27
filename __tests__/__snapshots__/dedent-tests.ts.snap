@@ -2,31 +2,99 @@
 
 exports[`dedent can be used as a function 1`] = `"A test argument."`;
 
-exports[`dedent doesn't strip exlicit newlines 1`] = `
+exports[`dedent doesn't strip explicit newlines 1`] = `
 "<p>Hello world!</p>
 "
 `;
 
-exports[`dedent doesn't strip exlicit newlines with mindent 1`] = `
+exports[`dedent doesn't strip explicit newlines with mindent 1`] = `
 "<p>
   Hello world!
 </p>
 "
 `;
 
-exports[`dedent escapes backticks 1`] = `"\`"`;
+exports[`dedent function character escapes default behavior does not escape backticks 1`] = `"\`"`;
 
-exports[`dedent escapes dollar signs 1`] = `"$"`;
+exports[`dedent function character escapes default behavior does not escape dollar signs 1`] = `"$"`;
 
-exports[`dedent escapes opening braces 1`] = `"{"`;
+exports[`dedent function character escapes default behavior does not escape opening braces 1`] = `"{"`;
 
-exports[`dedent ignores closing braces 1`] = `"\\}"`;
+exports[`dedent function character escapes default behavior escapes double-escaped backticks 1`] = `"\\\`"`;
+
+exports[`dedent function character escapes default behavior escapes double-escaped dollar signs 1`] = `"\\$"`;
+
+exports[`dedent function character escapes default behavior escapes double-escaped opening braces 1`] = `"\\{"`;
+
+exports[`dedent function character escapes default behavior ignores closing braces 1`] = `"}"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters false backticks 1`] = `"\`"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters false dollar signs 1`] = `"$"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters false double-escaped backticks 1`] = `"\\\`"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters false double-escaped dollar signs 1`] = `"\\$"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters false double-escaped opening braces 1`] = `"\\{"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters false opening braces 1`] = `"{"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters true backticks 1`] = `"\`"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters true dollar signs 1`] = `"$"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters true double-escaped backticks 1`] = `"\`"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters true double-escaped dollar signs 1`] = `"$"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters true double-escaped opening braces 1`] = `"{"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters true opening braces 1`] = `"{"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters undefined backticks 1`] = `"\`"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters undefined dollar signs 1`] = `"$"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters undefined double-escaped backticks 1`] = `"\\\`"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters undefined double-escaped dollar signs 1`] = `"\\$"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters undefined double-escaped opening braces 1`] = `"\\{"`;
+
+exports[`dedent function character escapes with escapeSpecialCharacters undefined opening braces 1`] = `"{"`;
 
 exports[`dedent single line input works with single line and closing backtick on newline 1`] = `"A single line of input."`;
 
 exports[`dedent single line input works with single line and inline closing backtick 1`] = `"A single line of input."`;
 
 exports[`dedent single line input works with single line input 1`] = `"A single line of input."`;
+
+exports[`dedent string tag character escapes default behavior escapes backticks 1`] = `"\`"`;
+
+exports[`dedent string tag character escapes default behavior escapes dollar signs 1`] = `"$"`;
+
+exports[`dedent string tag character escapes default behavior escapes opening braces 1`] = `"{"`;
+
+exports[`dedent string tag character escapes default behavior ignores closing braces 1`] = `"\\}"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters false backticks 1`] = `"\\\`"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters false dollar signs 1`] = `"\\$"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters false opening braces 1`] = `"\\{"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters true backticks 1`] = `"\`"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters true dollar signs 1`] = `"$"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters true opening braces 1`] = `"{"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters undefined backticks 1`] = `"\`"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters undefined dollar signs 1`] = `"$"`;
+
+exports[`dedent string tag character escapes with escapeSpecialCharacters undefined opening braces 1`] = `"{"`;
 
 exports[`dedent works with blank first line 1`] = `
 "Some text that I might want to indent:
