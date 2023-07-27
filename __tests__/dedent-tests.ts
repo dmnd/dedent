@@ -83,6 +83,18 @@ describe("dedent", () => {
     expect(dd`\``).toMatchSnapshot();
   });
 
+  it("escapes dollar signs", () => {
+    expect(dd`\$`).toMatchSnapshot();
+  });
+
+  it("escapes opening braces", () => {
+    expect(dd`\{`).toMatchSnapshot();
+  });
+
+  it("ignores closing braces", () => {
+    expect(dd`\}`).toMatchSnapshot();
+  });
+
   it("doesn't strip exlicit newlines", () => {
     expect(dd`
       <p>Hello world!</p>\n

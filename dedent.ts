@@ -14,10 +14,11 @@ export default function dedent(
   let result = "";
   for (let i = 0; i < raw.length; i++) {
     result += raw[i]
-      // join lines when there is a suppressed newline
+      // handle escaped newlines, backticks, and interpolation characters
+      .replace(/\\`/g, "`")
       .replace(/\\\n[ \t]*/g, "")
-      // handle escaped backticks
-      .replace(/\\`/g, "`");
+      .replace(/\\\$/g, "$")
+      .replace(/\\{/g, "{");
 
     if (i < values.length) {
       result += values[i];
