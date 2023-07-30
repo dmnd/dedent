@@ -3,6 +3,15 @@
 This changelog represents changes merged in 2023.
 Older changes can be viewed in https://github.com/dmnd/dedent/commits/main.
 
+## 1.5.0
+
+- feat: add options with escapeSpecialCharacters (#65)
+
+## 1.4.0
+
+- fix: add missing exports field to package.json (#59)
+- fix: fix missing ESM type definition file (#67)
+
 ## 1.3.0
 
 - fix: add missing exports field to package.json (#59)
