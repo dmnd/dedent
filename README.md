@@ -54,6 +54,62 @@ That's all.
 Wait! I lied. Dedent can also be used as a function.
 ```
 
+## Options
+
+You can customize the options `dedent` runs with by calling its `withOptions` method with an object:
+
+<!-- prettier-ignore -->
+```js
+import dedent from 'dedent';
+
+dedent.withOptions({ /* ... */ })`input`;
+dedent.withOptions({ /* ... */ })(`input`);
+```
+
+`options` returns a new `dedent` function, so if you'd like to reuse the same options, you can create a dedicated `dedent` function:
+
+<!-- prettier-ignore -->
+```js
+import dedent from 'dedent';
+
+const dedenter = dedent.withOptions({ /* ... */ });
+
+dedenter`input`;
+dedenter(`input`);
+```
+
+### `escapeSpecialCharacters`
+
+JavaScript string tags by default add an extra `\` escape in front of some special characters such as `$` dollar signs.
+`dedent` will escape those special characters when called as a string tag.
+
+If you'd like to change the behavior, an `escapeSpecialCharacters` option is available.
+It defaults to:
+
+- `false`: when `dedent` is called as a function
+- `true`: when `dedent` is called as a string tag
+
+```js
+import dedent from "dedent";
+
+// "$hello!"
+dedent`
+  $hello!
+`;
+
+// "\$hello!"
+dedent.withOptions({ escapeSpecialCharacters: false })`
+  $hello!
+`;
+
+// "$hello!"
+dedent.withOptions({ escapeSpecialCharacters: true })`
+  $hello!
+`;
+```
+
+For more context, see [https://github.com/dmnd/dedent/issues/63](🚀 Feature: Add an option to disable special character escaping).
+
 ## License
 
 MIT
