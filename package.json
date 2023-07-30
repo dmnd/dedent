@@ -7,9 +7,14 @@
   "module": "./dist/dedent.mjs",
   "exports": {
     ".": {
-      "types": "./dist/dedent.d.ts",
-      "import": "./dist/dedent.mjs",
-      "default": "./dist/dedent.js"
+      "import": {
+        "types": "./dist/dedent.d.mts",
+        "default": "./dist/dedent.mjs"
+      },
+      "require": {
+        "types": "./dist/dedent.d.ts",
+        "default": "./dist/dedent.js"
+      }
     }
   },
   "files": [
@@ -72,7 +77,7 @@
     "build": "yarn build:legacy && yarn build:modern && yarn build:types",
     "build:legacy": "BABEL_ENV=legacy babel dedent.ts --out-file dist/dedent.js",
     "build:modern": "BABEL_ENV=modern babel dedent.ts --out-file dist/dedent.mjs",
-    "build:types": "tsup dedent.ts --dts-only",
+    "build:types": "tsup dedent.ts --dts-only --format cjs,esm",
     "lint": "eslint .",
     "prepack": "yarn build",
     "test": "jest",
