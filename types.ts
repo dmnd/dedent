@@ -5,7 +5,7 @@ export interface DedentOptions {
 export interface Dedent {
   (literals: string): string;
   (strings: TemplateStringsArray, ...values: unknown[]): string;
-  options: CreateDedent;
+  withOptions: CreateDedent;
 }
 
 export type CreateDedent = (options: DedentOptions) => Dedent;

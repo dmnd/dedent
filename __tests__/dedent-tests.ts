@@ -115,37 +115,37 @@ describe("dedent", () => {
       (escapeSpecialCharacters) => {
         test("backticks", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })(`\``)
+            dedent.withOptions({ escapeSpecialCharacters })(`\``)
           ).toMatchSnapshot();
         });
 
         test("dollar signs", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })(`$`)
+            dedent.withOptions({ escapeSpecialCharacters })(`$`)
           ).toMatchSnapshot();
         });
 
         test("opening braces", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })(`{`)
+            dedent.withOptions({ escapeSpecialCharacters })(`{`)
           ).toMatchSnapshot();
         });
 
         test("double-escaped backticks", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })(`\\\``)
+            dedent.withOptions({ escapeSpecialCharacters })(`\\\``)
           ).toMatchSnapshot();
         });
 
         test("double-escaped dollar signs", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })(`\\$`)
+            dedent.withOptions({ escapeSpecialCharacters })(`\\$`)
           ).toMatchSnapshot();
         });
 
         test("double-escaped opening braces", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })(`\\{`)
+            dedent.withOptions({ escapeSpecialCharacters })(`\\{`)
           ).toMatchSnapshot();
         });
       }
@@ -176,19 +176,19 @@ describe("dedent", () => {
       (escapeSpecialCharacters) => {
         test("backticks", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })`\``
+            dedent.withOptions({ escapeSpecialCharacters })`\``
           ).toMatchSnapshot();
         });
 
         test("dollar signs", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })`\$`
+            dedent.withOptions({ escapeSpecialCharacters })`\$`
           ).toMatchSnapshot();
         });
 
         test("opening braces", () => {
           expect(
-            dedent.options({ escapeSpecialCharacters })`\{`
+            dedent.withOptions({ escapeSpecialCharacters })`\{`
           ).toMatchSnapshot();
         });
       }

@@ -1,11 +1,11 @@
-import { DedentOptions } from "./types";
+import type { DedentOptions } from "./types";
 
-export * from "./types";
+export type * from "./types";
 
 export default createDedent({});
 
 function createDedent(options: DedentOptions) {
-  dedent.options = (newOptions: DedentOptions) =>
+  dedent.withOptions = (newOptions: DedentOptions) =>
     createDedent({ ...options, ...newOptions });
 
   return dedent;

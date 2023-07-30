@@ -56,14 +56,14 @@ Wait! I lied. Dedent can also be used as a function.
 
 ## Options
 
-You can customize the options `dedent` runs with by calling its `options` method with an object:
+You can customize the options `dedent` runs with by calling its `withOptions` method with an object:
 
 <!-- prettier-ignore -->
 ```js
 import dedent from 'dedent';
 
-dedent.options({ /* ... */ })`input`;
-dedent.options({ /* ... */ })(`input`);
+dedent.withOptions({ /* ... */ })`input`;
+dedent.withOptions({ /* ... */ })(`input`);
 ```
 
 `options` returns a new `dedent` function, so if you'd like to reuse the same options, you can create a dedicated `dedent` function:
@@ -72,7 +72,7 @@ dedent.options({ /* ... */ })(`input`);
 ```js
 import dedent from 'dedent';
 
-const dedenter = dedent({ /* ... */ });
+const dedenter = dedent.withOptions({ /* ... */ });
 
 dedenter`input`;
 dedenter(`input`);
@@ -98,12 +98,12 @@ dedent`
 `;
 
 // "\$hello!"
-dedent.options({ escapeSpecialCharacters: false })`
+dedent.withOptions({ escapeSpecialCharacters: false })`
   $hello!
 `;
 
 // "$hello!"
-dedent.options({ escapeSpecialCharacters: true })`
+dedent.withOptions({ escapeSpecialCharacters: true })`
   $hello!
 `;
 ```
