@@ -18,6 +18,7 @@
     }
   },
   "files": [
+    "dist/dedent.d.mts",
     "dist/dedent.d.ts",
     "dist/dedent.js",
     "dist/dedent.mjs",
