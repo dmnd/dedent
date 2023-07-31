@@ -5,7 +5,7 @@ Older changes can be viewed in https://github.com/dmnd/dedent/commits/main.
 
 ## 1.5.1
 
-- fix: add missing dedent.d.mts entry to package.json files
+- fix: add missing dedent.d.mts entry to package.json files (#73)
 
 ## 1.5.0
 
