@@ -2,11 +2,15 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"esModuleInterop": true,
+		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"noEmit": true,
+		"outDir": "dist",
+		"resolveJsonModule": true,
+		"rootDir": ".",
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "ESNext"
+		"target": "ES2022"
 	},
 	"exclude": ["dist"],
 	"include": [".eslintrc.js", "*.ts", "__tests__"]

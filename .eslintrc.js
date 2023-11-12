@@ -1,7 +1,8 @@
-/* eslint-env node */
+/** @type {import("@types/eslint").Linter.Config} */
 module.exports = {
 	env: {
 		es2022: true,
+		node: true,
 	},
 	extends: [
 		"eslint:recommended",
@@ -9,7 +10,6 @@ module.exports = {
 		"plugin:n/recommended",
 		"plugin:perfectionist/recommended-natural",
 		"plugin:regexp/recommended",
-		"prettier",
 	],
 	overrides: [
 		{
@@ -28,12 +28,24 @@ module.exports = {
 			rules: {
 				// These off-by-default rules work well for this repo and we like them on.
 				"jsdoc/informative-docs": "error",
+				"logical-assignment-operators": [
+					"error",
+					"always",
+					{ enforceForIfStatements: true },
+				],
+				"operator-assignment": "error",
 
 				// These on-by-default rules don't work well for this repo and we like them off.
 				"jsdoc/require-jsdoc": "off",
 				"jsdoc/require-param": "off",
 				"jsdoc/require-property": "off",
 				"jsdoc/require-returns": "off",
+			},
+		},
+		{
+			files: "**/*.md/*.ts",
+			rules: {
+				"n/no-missing-import": ["error", { allowModules: ["dedent"] }],
 			},
 		},
 		{
@@ -45,7 +57,7 @@ module.exports = {
 			files: ["**/*.ts"],
 			parser: "@typescript-eslint/parser",
 			parserOptions: {
-				project: true,
+				project: "./tsconfig.eslint.json",
 				tsconfigRootDir: __dirname,
 			},
 			rules: {
@@ -134,6 +146,8 @@ module.exports = {
 			"error",
 			{ blankLine: "always", next: "*", prev: "block-like" },
 		],
+		"no-useless-rename": "error",
+		"object-shorthand": "error",
 		"perfectionist/sort-objects": [
 			"error",
 			{

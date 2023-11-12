@@ -1,13 +1,12 @@
 jobs:
-  lint:
+  lint_packages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
-      - run: pnpm build || true
-      - run: pnpm lint
+      - run: pnpm lint:packages
 
-name: Lint
+name: Lint Packages
 
 on:
   pull_request: ~

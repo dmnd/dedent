@@ -6,8 +6,7 @@
 		"coverage",
 		"dist",
 		"node_modules",
-		"pnpm-lock.yaml",
-		"script/*.json"
+		"pnpm-lock.yaml"
 	],
 	"words": [
 		"Codecov",
