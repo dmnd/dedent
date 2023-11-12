@@ -1,7 +1,7 @@
 {
 	"name": "dedent",
 	"version": "1.5.1",
-	"description": "A string tag that strips indentation from multi-line strings. 📐",
+	"description": "A string tag that strips indentation from multi-line strings. ⬅️",
 	"keywords": [
 		"dedent",
 		"tag",

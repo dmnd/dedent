@@ -1,6 +1,6 @@
 <h1 align="center">dedent</h1>
 
-<p align="center">A string tag that strips indentation from multi-line strings. 📐</p>
+<p align="center">A string tag that strips indentation from multi-line strings. ⬅️</p>
 
 <p align="center">
 	<a href="#contributors" target="_blank">
