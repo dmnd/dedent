@@ -1,14 +1,17 @@
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "esModuleInterop": true,
-    "module": "ESNext",
-    "moduleResolution": "NodeNext",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "ESNext"
-  },
-  "exclude": ["dist"],
-  "include": [".eslintrc.js", "*.ts", "__tests__"]
+	"compilerOptions": {
+		"allowJs": true,
+		"esModuleInterop": true,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"noEmit": true,
+		"outDir": "dist",
+		"resolveJsonModule": true,
+		"rootDir": ".",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES2022"
+	},
+	"exclude": ["dist"],
+	"include": [".eslintrc.js", "*.ts"]
 }

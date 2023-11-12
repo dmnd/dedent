@@ -1,46 +1,46 @@
 {
-  "env": {
-    "legacy": {
-      "plugins": [["add-module-exports", { "addDefaultProperty": true }]],
-      "presets": [
-        "@babel/preset-typescript",
-        [
-          "@babel/preset-env",
-          {
-            "modules": "commonjs",
-            "targets": {
-              "node": 10
-            }
-          }
-        ]
-      ]
-    },
-    "modern": {
-      "presets": [
-        "@babel/preset-typescript",
-        [
-          "@babel/preset-env",
-          {
-            "modules": false,
-            "bugfixes": true,
-            "targets": {
-              "esmodules": true
-            }
-          }
-        ]
-      ]
-    }
-  },
-  "presets": [
-    "@babel/preset-typescript",
-    [
-      "@babel/preset-env",
-      {
-        "modules": "commonjs",
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
-  ]
+	"env": {
+		"legacy": {
+			"plugins": [["add-module-exports", { "addDefaultProperty": true }]],
+			"presets": [
+				"@babel/preset-typescript",
+				[
+					"@babel/preset-env",
+					{
+						"modules": "commonjs",
+						"targets": {
+							"node": 10
+						}
+					}
+				]
+			]
+		},
+		"modern": {
+			"presets": [
+				"@babel/preset-typescript",
+				[
+					"@babel/preset-env",
+					{
+						"modules": false,
+						"bugfixes": true,
+						"targets": {
+							"esmodules": true
+						}
+					}
+				]
+			]
+		}
+	},
+	"presets": [
+		"@babel/preset-typescript",
+		[
+			"@babel/preset-env",
+			{
+				"modules": "commonjs",
+				"targets": {
+					"node": "current"
+				}
+			}
+		]
+	]
 }

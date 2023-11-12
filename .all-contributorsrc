@@ -1,0 +1,160 @@
+{
+	"badgeTemplate": "<img alt=\"All Contributors: <%= contributors.length %> 👪\" src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>_👪-21bb42.svg\" />",
+	"commit": false,
+	"commitConvention": "angular",
+	"contributors": [
+		{
+			"login": "JoshuaKGoldberg",
+			"name": "Josh Goldberg ✨",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
+			"profile": "http://www.joshuakgoldberg.com/",
+			"contributions": [
+				"bug",
+				"code",
+				"doc",
+				"ideas",
+				"infra",
+				"maintenance",
+				"projectManagement",
+				"tool"
+			]
+		},
+		{
+			"login": "dmnd",
+			"name": "Desmond Brand",
+			"avatar_url": "https://avatars.githubusercontent.com/u/4427?v=4",
+			"profile": "https://synthesis.com/",
+			"contributions": [
+				"bug",
+				"code",
+				"doc",
+				"ideas",
+				"infra",
+				"maintenance",
+				"projectManagement",
+				"tool"
+			]
+		},
+		{
+			"login": "G-Rath",
+			"name": "Gareth Jones",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3151613?v=4",
+			"profile": "https://github.com/G-Rath",
+			"contributions": ["code", "bug"]
+		},
+		{
+			"login": "jlarmstrongiv",
+			"name": "John L. Armstrong IV",
+			"avatar_url": "https://avatars.githubusercontent.com/u/20903247?v=4",
+			"profile": "https://github.com/jlarmstrongiv",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "cometkim",
+			"name": "Hyeseong Kim",
+			"avatar_url": "https://avatars.githubusercontent.com/u/9696352?v=4",
+			"profile": "https://blog.cometkim.kr/",
+			"contributions": ["tool", "infra"]
+		},
+		{
+			"login": "adrianjost",
+			"name": "Adrian Jost",
+			"avatar_url": "https://avatars.githubusercontent.com/u/22987140?v=4",
+			"profile": "https://adrianjost.dev/",
+			"contributions": ["code"]
+		},
+		{
+			"login": "Haroenv",
+			"name": "Haroen Viaene",
+			"avatar_url": "https://avatars.githubusercontent.com/u/6270048?v=4",
+			"profile": "https://haroen.me/",
+			"contributions": ["code", "maintenance"]
+		},
+		{
+			"login": "phenomnomnominal",
+			"name": "Craig Spence",
+			"avatar_url": "https://avatars.githubusercontent.com/u/1086286?v=4",
+			"profile": "https://github.com/phenomnomnominal",
+			"contributions": ["code"]
+		},
+		{
+			"login": "pratapvardhan",
+			"name": "Pratap Vardhan",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3757165?v=4",
+			"profile": "https://pratapvardhan.com/",
+			"contributions": ["code"]
+		},
+		{
+			"login": "bennypowers",
+			"name": "Benny Powers - עם ישראל חי!",
+			"avatar_url": "https://avatars.githubusercontent.com/u/1466420?v=4",
+			"profile": "https://bennypowers.dev/",
+			"contributions": ["tool"]
+		},
+		{
+			"login": "d07RiV",
+			"name": "d07riv",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3448203?v=4",
+			"profile": "https://github.com/d07RiV",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "lydell",
+			"name": "Simon Lydell",
+			"avatar_url": "https://avatars.githubusercontent.com/u/2142817?v=4",
+			"profile": "https://github.com/lydell",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "mizdra",
+			"name": "mizdra",
+			"avatar_url": "https://avatars.githubusercontent.com/u/9639995?v=4",
+			"profile": "https://mizdra.net/",
+			"contributions": ["code"]
+		},
+		{
+			"login": "moll",
+			"name": "Andri Möll",
+			"avatar_url": "https://avatars.githubusercontent.com/u/156837?v=4",
+			"profile": "https://m811.com/",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "otakustay",
+			"name": "Gray Zhang",
+			"avatar_url": "https://avatars.githubusercontent.com/u/639549?v=4",
+			"profile": "https://github.com/otakustay",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "sirian",
+			"name": "sirian",
+			"avatar_url": "https://avatars.githubusercontent.com/u/897643?v=4",
+			"profile": "https://github.com/sirian",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "yinm",
+			"name": "Yusuke Iinuma",
+			"avatar_url": "https://avatars.githubusercontent.com/u/13295106?v=4",
+			"profile": "https://github.com/yinm",
+			"contributions": ["code"]
+		},
+		{
+			"login": "yvele",
+			"name": "Yves M.",
+			"avatar_url": "https://avatars.githubusercontent.com/u/4225430?v=4",
+			"profile": "https://github.com/yvele",
+			"contributions": ["tool"]
+		}
+	],
+	"contributorsPerLine": 7,
+	"contributorsSortAlphabetically": true,
+	"files": ["README.md"],
+	"imageSize": 100,
+	"projectName": "dedent",
+	"projectOwner": "dmnd",
+	"repoHost": "https://github.com",
+	"repoType": "github"
+}
+

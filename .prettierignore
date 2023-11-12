@@ -1,0 +1,4 @@
+.all-contributorsrc
+coverage/
+dist/
+pnpm-lock.yaml

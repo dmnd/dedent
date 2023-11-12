@@ -9,7 +9,7 @@ exports[`dedent doesn't strip explicit newlines 1`] = `
 
 exports[`dedent doesn't strip explicit newlines with mindent 1`] = `
 "<p>
-  Hello world!
+	Hello world!
 </p>
 "
 `;
@@ -98,8 +98,8 @@ exports[`dedent string tag character escapes with escapeSpecialCharacters undefi
 
 exports[`dedent works with blank first line 1`] = `
 "Some text that I might want to indent:
-  * reasons
-  * fun
+	* reasons
+	* fun
 That's all."
 `;
 
@@ -123,8 +123,14 @@ third"
 
 exports[`dedent works with removing same number of spaces 1`] = `
 "first
-   second
-      third"
+	second
+		 third"
+`;
+
+exports[`dedent works with spaces for indentation 1`] = `
+"first
+  second
+    third"
 `;
 
 exports[`dedent works with suppressed newlines 1`] = `
