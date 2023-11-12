@@ -13,5 +13,5 @@
 		"target": "ES2022"
 	},
 	"exclude": ["dist"],
-	"include": [".eslintrc.js", "*.ts", "__tests__"]
+	"include": [".eslintrc.js", "*.ts"]
 }

@@ -1,4 +1,4 @@
-import dedent from "../src/dedent";
+import dedent from "./dedent";
 
 describe("dedent", () => {
 	it("works without interpolation", () => {
