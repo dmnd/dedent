@@ -129,7 +129,7 @@ dedent.withOptions({ escapeSpecialCharacters: true })`
 `;
 ```
 
-For more context, see [https://github.com/dmnd/dedent/issues/63](🚀 Feature: Add an option to disable special character escaping).
+For more context, see [🚀 Feature: Add an option to disable special character escaping](https://github.com/dmnd/dedent/issues/63).
 
 ## License
 
