@@ -2,5 +2,6 @@
 	"$schema": "https://unpkg.com/knip@latest/schema.json",
 	"entry": ["src/index.ts!"],
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
+	"ignoreDependencies": ["babel-plugin-macros"],
 	"project": ["src/**/*.ts!"]
 }
