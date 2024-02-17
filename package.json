@@ -63,9 +63,6 @@
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"
 	},
-	"dependencies": {
-		"babel-plugin-macros": "^3.1.0"
-	},
 	"devDependencies": {
 		"@babel/cli": "^7.21.5",
 		"@babel/preset-env": "^7.23.3",
@@ -109,6 +106,14 @@
 		"tsup": "^7.2.0",
 		"typescript": "^5.2.2",
 		"yaml-eslint-parser": "^1.2.2"
+	},
+	"peerDependencies": {
+		"babel-plugin-macros": "^3.1.0"
+	},
+	"peerDependenciesMeta": {
+		"babel-plugin-macros": {
+			"optional": true
+		}
 	},
 	"packageManager": "pnpm@8.7.0",
 	"engines": {
