@@ -27,6 +27,10 @@
 
 ## Usage
 
+```shell
+npm i dedent
+```
+
 ```js
 import dedent from "dedent";
 
