@@ -68,12 +68,13 @@ function createDedent(options: DedentOptions) {
 				.join("\n");
 		}
 
-		return (
-			result
-				// dedent eats leading and trailing whitespace too
-				.trim()
-				// handle escaped newlines at the end to ensure they don't get stripped too
-				.replace(/\\n/g, "\n")
-		);
+		// dedent eats leading and trailing whitespace too
+		result = result.trim();
+		if (escapeSpecialCharacters) {
+			// handle escaped newlines at the end to ensure they don't get stripped too
+			result = result.replace(/\\n/g, "\n");
+		}
+
+		return result;
 	}
 }
