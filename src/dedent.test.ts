@@ -232,4 +232,8 @@ describe("dedent", () => {
 	it("works with escaped tabs for indentation", () => {
 		expect(dedent("\t\tfirst\n\t\t\tsecond\n\t\t\t\tthird")).toMatchSnapshot();
 	});
+
+	it("does not replace \\n when called as a function", () => {
+		expect(dedent(`\\nu`)).toBe("\\nu");
+	});
 });
