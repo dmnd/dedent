@@ -1,6 +1,6 @@
 {
 	"name": "dedent",
-	"version": "1.5.1",
+	"version": "1.5.3",
 	"description": "A string tag that strips indentation from multi-line strings. ⬅️",
 	"keywords": [
 		"dedent",
@@ -115,11 +115,5 @@
 			"optional": true
 		}
 	},
-	"packageManager": "pnpm@8.7.0",
-	"engines": {
-		"node": ">=18"
-	},
-	"publishConfig": {
-		"provenance": true
-	}
+	"packageManager": "pnpm@8.7.0"
 }
