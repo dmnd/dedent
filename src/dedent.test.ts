@@ -152,6 +152,43 @@ describe("dedent", () => {
 		);
 	});
 
+	describe.each([undefined, false, true])(
+		"with trimWhitespace %s",
+		(trimWhitespace) => {
+			test("with trailing whitespace", () => {
+				expect(
+					dedent.withOptions({ trimWhitespace })(
+						`
+						foo---
+						bar---
+					`.replace(/-/g, " "),
+					),
+				).toMatchSnapshot();
+			});
+
+			test("without trailing whitespace", () => {
+				expect(
+					dedent.withOptions({ trimWhitespace })(
+						`
+						foo
+						bar
+					`.replace(/-/g, " "),
+					),
+				).toMatchSnapshot();
+			});
+
+			test("with leading whitespace", () => {
+				expect(
+					dedent.withOptions({ trimWhitespace })(`
+
+
+						foo
+					`),
+				).toMatchSnapshot();
+			});
+		},
+	);
+
 	describe("string tag character escapes", () => {
 		describe("default behavior", () => {
 			it("escapes backticks", () => {
@@ -212,10 +249,10 @@ describe("dedent", () => {
 	it("works with spaces for indentation", () => {
 		expect(
 			dedent`
-      first
-        second
-          third
-      `,
+			first
+				second
+					third
+			`,
 		).toMatchSnapshot();
 	});
 

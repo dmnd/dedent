@@ -96,6 +96,52 @@ exports[`dedent string tag character escapes with escapeSpecialCharacters undefi
 
 exports[`dedent string tag character escapes with escapeSpecialCharacters undefined opening braces 1`] = `"{"`;
 
+exports[`dedent with trimWhitespace false with leading whitespace 1`] = `
+"
+
+
+foo
+"
+`;
+
+exports[`dedent with trimWhitespace false with trailing whitespace 1`] = `
+"
+foo   
+bar   
+"
+`;
+
+exports[`dedent with trimWhitespace false without trailing whitespace 1`] = `
+"
+foo
+bar
+"
+`;
+
+exports[`dedent with trimWhitespace true with leading whitespace 1`] = `"foo"`;
+
+exports[`dedent with trimWhitespace true with trailing whitespace 1`] = `
+"foo   
+bar"
+`;
+
+exports[`dedent with trimWhitespace true without trailing whitespace 1`] = `
+"foo
+bar"
+`;
+
+exports[`dedent with trimWhitespace undefined with leading whitespace 1`] = `"foo"`;
+
+exports[`dedent with trimWhitespace undefined with trailing whitespace 1`] = `
+"foo   
+bar"
+`;
+
+exports[`dedent with trimWhitespace undefined without trailing whitespace 1`] = `
+"foo
+bar"
+`;
+
 exports[`dedent works with blank first line 1`] = `
 "Some text that I might want to indent:
 	* reasons
@@ -129,8 +175,8 @@ exports[`dedent works with removing same number of spaces 1`] = `
 
 exports[`dedent works with spaces for indentation 1`] = `
 "first
-  second
-    third"
+	second
+		third"
 `;
 
 exports[`dedent works with suppressed newlines 1`] = `
