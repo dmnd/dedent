@@ -72,7 +72,7 @@ function createDedent(options: DedentOptions) {
 		}
 
 		// dedent eats leading and trailing whitespace too
-		if (stripTrailingWhitespace) {
+		if (trimWhitespace) {
 			result = result.trim();
 		}
 		if (escapeSpecialCharacters) {

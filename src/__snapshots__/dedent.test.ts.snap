@@ -175,8 +175,8 @@ exports[`dedent works with removing same number of spaces 1`] = `
 
 exports[`dedent works with spaces for indentation 1`] = `
 "first
-	second
-		third"
+  second
+    third"
 `;
 
 exports[`dedent works with suppressed newlines 1`] = `

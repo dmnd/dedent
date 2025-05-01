@@ -249,10 +249,10 @@ describe("dedent", () => {
 	it("works with spaces for indentation", () => {
 		expect(
 			dedent`
-			first
-				second
-					third
-			`,
+      first
+        second
+          third
+      `,
 		).toMatchSnapshot();
 	});
 
