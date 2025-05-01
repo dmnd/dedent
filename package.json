@@ -1,6 +1,6 @@
 {
 	"name": "dedent",
-	"version": "1.5.3",
+	"version": "1.6.0",
 	"description": "A string tag that strips indentation from multi-line strings. ⬅️",
 	"keywords": [
 		"dedent",
