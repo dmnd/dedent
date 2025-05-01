@@ -1,5 +1,6 @@
 export interface DedentOptions {
 	escapeSpecialCharacters?: boolean;
+	trimWhitespace?: boolean;
 }
 
 export interface Dedent {

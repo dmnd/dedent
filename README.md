@@ -135,6 +135,31 @@ dedent.withOptions({ escapeSpecialCharacters: true })`
 
 For more context, see [🚀 Feature: Add an option to disable special character escaping](https://github.com/dmnd/dedent/issues/63).
 
+### `trimWhitespace`
+
+By default, dedent will trim leading and trailing whitespace from the overall string.
+
+This can be disabled by setting `trimWhitespace: false`.
+
+```js
+import dedent from "dedent";
+
+// "hello!"
+dedent`
+  hello! 
+`;
+
+// "\nhello! \n"
+dedent.withOptions({ trimWhitespace: false })`
+  hello! 
+`;
+
+// "hello!"
+dedent.withOptions({ trimWhitespace: true })`
+  hello! 
+`;
+```
+
 ## License
 
 MIT

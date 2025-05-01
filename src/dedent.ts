@@ -19,7 +19,10 @@ function createDedent(options: DedentOptions) {
 		...values: unknown[]
 	) {
 		const raw = typeof strings === "string" ? [strings] : strings.raw;
-		const { escapeSpecialCharacters = Array.isArray(strings) } = options;
+		const {
+			escapeSpecialCharacters = Array.isArray(strings),
+			trimWhitespace = true,
+		} = options;
 
 		// first, perform interpolation
 		let result = "";
@@ -69,9 +72,12 @@ function createDedent(options: DedentOptions) {
 		}
 
 		// dedent eats leading and trailing whitespace too
-		result = result.trim();
+		if (trimWhitespace) {
+			result = result.trim();
+		}
+
+		// handle escaped newlines at the end to ensure they don't get stripped too
 		if (escapeSpecialCharacters) {
-			// handle escaped newlines at the end to ensure they don't get stripped too
 			result = result.replace(/\\n/g, "\n");
 		}
 
