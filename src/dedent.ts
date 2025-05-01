@@ -75,8 +75,9 @@ function createDedent(options: DedentOptions) {
 		if (trimWhitespace) {
 			result = result.trim();
 		}
+
+		// handle escaped newlines at the end to ensure they don't get stripped too
 		if (escapeSpecialCharacters) {
-			// handle escaped newlines at the end to ensure they don't get stripped too
 			result = result.replace(/\\n/g, "\n");
 		}
 
