@@ -21,7 +21,7 @@ function createDedent(options: DedentOptions) {
 		const raw = typeof strings === "string" ? [strings] : strings.raw;
 		const {
 			escapeSpecialCharacters = Array.isArray(strings),
-			trimWhitespace: stripTrailingWhitespace = true,
+			trimWhitespace = true,
 		} = options;
 
 		// first, perform interpolation
