@@ -273,4 +273,26 @@ describe("dedent", () => {
 	it("does not replace \\n when called as a function", () => {
 		expect(dedent(`\\nu`)).toBe("\\nu");
 	});
+
+	describe.each([undefined, false, true])(
+		"with alignValues %s",
+		(alignValues) => {
+			test("with nested text", () => {
+				expect(
+					dedent.withOptions({ alignValues })`
+						Some nested items I want to dedent:
+							* first
+							${dedent`
+								* second
+								* third`}
+							* fourth
+							${dedent`
+								* fifth
+								* sixth`}
+						That's all!
+					`,
+				).toMatchSnapshot();
+			});
+		},
+	);
 });

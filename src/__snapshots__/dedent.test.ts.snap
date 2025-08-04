@@ -96,6 +96,39 @@ exports[`dedent string tag character escapes with escapeSpecialCharacters undefi
 
 exports[`dedent string tag character escapes with escapeSpecialCharacters undefined opening braces 1`] = `"{"`;
 
+exports[`dedent with alignValues false with nested text 1`] = `
+"Some nested items I want to dedent:
+	* first
+	* second
+* third
+	* fourth
+	* fifth
+* sixth
+That's all!"
+`;
+
+exports[`dedent with alignValues true with nested text 1`] = `
+"Some nested items I want to dedent:
+	* first
+	* second
+	* third
+	* fourth
+	* fifth
+	* sixth
+That's all!"
+`;
+
+exports[`dedent with alignValues undefined with nested text 1`] = `
+"Some nested items I want to dedent:
+	* first
+	* second
+* third
+	* fourth
+	* fifth
+* sixth
+That's all!"
+`;
+
 exports[`dedent with trimWhitespace false with leading whitespace 1`] = `
 "
 
