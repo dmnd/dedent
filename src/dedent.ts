@@ -42,15 +42,7 @@ function createDedent(options: DedentOptions) {
 			result += next;
 
 			if (i < values.length) {
-				let value = values[i];
-				if (alignValues && typeof value === "string" && value.includes("\n")) {
-					// indent the value to match the indentation of the current line
-					const m = result.slice(result.lastIndexOf("\n") + 1).match(/^(\s+)/);
-					if (m) {
-						const indent = m[1];
-						value = value.replace(/\n/g, `\n${indent}`);
-					}
-				}
+				const value = alignValues ? alignValue(values[i], result) : values[i];
 
 				// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
 				result += value;
@@ -94,4 +86,20 @@ function createDedent(options: DedentOptions) {
 
 		return result;
 	}
+}
+
+// Adjust the indentation of a multi-line interpolated value to match the current line
+function alignValue(value: unknown, precedingText: string) {
+	if (typeof value !== "string" || !value.includes("\n")) {
+		return value;
+	}
+
+	const currentLine = precedingText.slice(precedingText.lastIndexOf("\n") + 1);
+	const indentMatch = currentLine.match(/^(\s+)/);
+	if (indentMatch) {
+		const indent = indentMatch[1];
+		return value.replace(/\n/g, `\n${indent}`);
+	}
+
+	return value;
 }
