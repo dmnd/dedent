@@ -93,6 +93,52 @@ dedenter`input`;
 dedenter(`input`);
 ```
 
+### `alignValues`
+
+When an interpolation evaluates to a multi-line string, only its first line is placed where the `${...}` appears. Subsequent lines keep whatever indentation they already had inside that value (often none), so they can appear “shifted left”.
+
+Enable `alignValues` to fix that visual jump. When `true`, for every multi-line interpolated value, each line after the first gets extra indentation appended so it starts in the same column as the first line.
+
+```js
+import dedent from "dedent";
+
+const list = dedent`
+	- apples
+	- bananas
+	- cherries
+`;
+
+const withoutAlign = dedent`
+	List without alignValues (default):
+		${list}
+	Done.
+`;
+
+const withAlign = dedent.withOptions({ alignValues: true })`
+	List with alignValues: true
+		${list}
+	Done.
+`;
+
+console.log(withoutAlign);
+console.log("---");
+console.log(withAlign);
+```
+
+```plaintext
+List without alignValues (default):
+	- apples
+- bananas
+- cherries
+Done.
+---
+List with alignValues: true
+	- apples
+	- bananas
+	- cherries
+Done.
+```
+
 ### `escapeSpecialCharacters`
 
 JavaScript string tags by default add an extra `\` escape in front of some special characters such as `$` dollar signs.
