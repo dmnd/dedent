@@ -88,7 +88,9 @@ function createDedent(options: DedentOptions) {
 	}
 }
 
-// Adjust the indentation of a multi-line interpolated value to match the current line
+/**
+ * Adjusts the indentation of a multi-line interpolated value to match the current line.
+ */
 function alignValue(value: unknown, precedingText: string) {
 	if (typeof value !== "string" || !value.includes("\n")) {
 		return value;
