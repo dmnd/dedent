@@ -295,4 +295,11 @@ describe("dedent", () => {
 			});
 		},
 	);
+
+	describe("bun environment tests", () => {
+		it("preserves unicode", () => {
+			expect(dedent`😊`).toBe("😊");
+			expect(dedent`弟気`).toBe("弟気");
+		});
+	});
 });

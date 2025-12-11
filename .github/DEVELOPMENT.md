@@ -78,6 +78,14 @@ pnpm run test --coverage
 Note that [console-fail-test](https://github.com/JoshuaKGoldberg/console-fail-test) is enabled for all test runs.
 Calls to `console.log`, `console.warn`, and other console methods will cause a test to fail.
 
+### Testing with Bun
+
+With Bun installed on your system, the tests can be ran with [Bun](https://bun.com/docs/test)'s test runner rather than Node and Jest.
+
+```shell
+pnpm run test:bun
+```
+
 ## Type Checking
 
 You should be able to see suggestions from [TypeScript](https://typescriptlang.org) in your editor for all open files.
