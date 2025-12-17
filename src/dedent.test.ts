@@ -296,9 +296,12 @@ describe("dedent", () => {
 		},
 	);
 
-	describe("bun environment tests", () => {
-		it("preserves unicode", () => {
+	describe("Unicode character preservation", () => {
+		it("preserves emojis", () => {
 			expect(dedent`😊`).toBe("😊");
+		});
+
+		it("preserves ideographs", () => {
 			expect(dedent`弟気`).toBe("弟気");
 		});
 	});

@@ -80,7 +80,7 @@ Calls to `console.log`, `console.warn`, and other console methods will cause a t
 
 ### Testing with Bun
 
-With Bun installed on your system, the tests can be ran with [Bun](https://bun.com/docs/test)'s test runner rather than Node and Jest.
+If you have [Bun](https://bun.com/docs/test) installed on your system, tests can be run with Bun's test runner rather than Node and Jest.
 
 ```shell
 pnpm run test:bun
