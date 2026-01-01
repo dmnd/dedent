@@ -274,6 +274,37 @@ describe("dedent", () => {
 		expect(dedent(`\\nu`)).toBe("\\nu");
 	});
 
+	it("handles escape sequences like hex and unicode", () => {
+		expect(dedent`\xa0\t`).toBe("\xa0\t");
+		expect(dedent`\u5F1F`).toBe("\u5F1F");
+		expect(dedent`\u{1F60A}`).toBe("\u{1F60A}");
+	});
+
+	it("does not unescape when escapeSpecialCharacters is false (tag)", () => {
+		const dedentFn = dedent.withOptions({ escapeSpecialCharacters: false });
+		expect(dedentFn`\xa0\t`).toBe("\\xa0\\t");
+		expect(dedentFn`\u5F1F`).toBe("\\u5F1F");
+		expect(dedentFn`\u{1F60A}`).toBe("\\u{1F60A}");
+	});
+
+	it("does not unescape when called as a function", () => {
+		expect(dedent("\\xa0\\t")).toBe("\\xa0\\t");
+		expect(dedent("\\u5F1F")).toBe("\\u5F1F");
+		expect(dedent("\\u{1F60A}")).toBe("\\u{1F60A}");
+	});
+
+	it("should escape when called with template strings", () => {
+		expect(dedent`a\xa0b`).toMatchSnapshot();
+		expect(dedent`\${hi}`).toMatchSnapshot();
+	});
+
+	it("should escape when called with template strings (multiline)", () => {
+		expect(dedent`
+			\${hi}
+			name
+		`).toMatchSnapshot();
+	});
+
 	describe.each([undefined, false, true])(
 		"with alignValues %s",
 		(alignValues) => {
