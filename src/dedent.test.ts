@@ -287,15 +287,18 @@ describe("dedent", () => {
 	});
 
 	describe("escape sequences when escapeSpecialCharacters is false", () => {
-		const dedentFn = dedent.withOptions({ escapeSpecialCharacters: false });
+		const dedenter = dedent.withOptions({ escapeSpecialCharacters: false });
+
 		it("passes through a hex escape", () => {
-			expect(dedentFn`\xa0\t`).toBe("\\xa0\\t");
+			expect(dedenter`\xa0\t`).toBe("\\xa0\\t");
 		});
+
 		it("passes through a fixed-length Unicode escape", () => {
-			expect(dedentFn`\u5F1F`).toBe("\\u5F1F");
+			expect(dedenter`\u5F1F`).toBe("\\u5F1F");
 		});
+
 		it("passes through a Unicode code point escape", () => {
-			expect(dedentFn`\u{1F60A}`).toBe("\\u{1F60A}");
+			expect(dedenter`\u{1F60A}`).toBe("\\u{1F60A}");
 		});
 	});
 
