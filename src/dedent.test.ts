@@ -274,27 +274,48 @@ describe("dedent", () => {
 		expect(dedent(`\\nu`)).toBe("\\nu");
 	});
 
-	it("handles escape sequences like hex and unicode", () => {
-		expect(dedent`\xa0\t`).toBe("\xa0\t");
-		expect(dedent`\u5F1F`).toBe("\u5F1F");
-		expect(dedent`\u{1F60A}`).toBe("\u{1F60A}");
+	describe("escape sequences", () => {
+		it("passes through a hex escape", () => {
+			expect(dedent`\xa0\t`).toBe("\xa0\t");
+		});
+		it("passes through a fixed-length Unicode escape", () => {
+			expect(dedent`\u5F1F`).toBe("\u5F1F");
+		});
+		it("passes through a Unicode code point escape", () => {
+			expect(dedent`\u{1F60A}`).toBe("\u{1F60A}");
+		});
 	});
 
-	it("does not unescape when escapeSpecialCharacters is false (tag)", () => {
+	describe("escape sequences when escapeSpecialCharacters is false", () => {
 		const dedentFn = dedent.withOptions({ escapeSpecialCharacters: false });
-		expect(dedentFn`\xa0\t`).toBe("\\xa0\\t");
-		expect(dedentFn`\u5F1F`).toBe("\\u5F1F");
-		expect(dedentFn`\u{1F60A}`).toBe("\\u{1F60A}");
+		it("passes through a hex escape", () => {
+			expect(dedentFn`\xa0\t`).toBe("\\xa0\\t");
+		});
+		it("passes through a fixed-length Unicode escape", () => {
+			expect(dedentFn`\u5F1F`).toBe("\\u5F1F");
+		});
+		it("passes through a Unicode code point escape", () => {
+			expect(dedentFn`\u{1F60A}`).toBe("\\u{1F60A}");
+		});
 	});
 
-	it("does not unescape when called as a function", () => {
+	it("does not unescape when called as a function (hex escape)", () => {
 		expect(dedent("\\xa0\\t")).toBe("\\xa0\\t");
+	});
+
+	it("does not unescape when called as a function (fixed-length Unicode escape)", () => {
 		expect(dedent("\\u5F1F")).toBe("\\u5F1F");
+	});
+
+	it("does not unescape when called as a function (code point escape)", () => {
 		expect(dedent("\\u{1F60A}")).toBe("\\u{1F60A}");
 	});
 
-	it("should escape when called with template strings", () => {
+	it("should escape when called with template strings (hex escape)", () => {
 		expect(dedent`a\xa0b`).toMatchSnapshot();
+	});
+
+	it("should escape when called with template strings (escaped interpolation)", () => {
 		expect(dedent`\${hi}`).toMatchSnapshot();
 	});
 

@@ -64,14 +64,14 @@ exports[`dedent function character escapes with escapeSpecialCharacters undefine
 
 exports[`dedent function character escapes with escapeSpecialCharacters undefined opening braces 1`] = `"{"`;
 
+exports[`dedent should escape when called with template strings (escaped interpolation) 1`] = `"\${hi}"`;
+
+exports[`dedent should escape when called with template strings (hex escape) 1`] = `"a b"`;
+
 exports[`dedent should escape when called with template strings (multiline) 1`] = `
 "\${hi}
 name"
 `;
-
-exports[`dedent should escape when called with template strings 1`] = `"a b"`;
-
-exports[`dedent should escape when called with template strings 2`] = `"\${hi}"`;
 
 exports[`dedent single line input works with single line and closing backtick on newline 1`] = `"A single line of input."`;
 
