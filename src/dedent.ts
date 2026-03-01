@@ -79,9 +79,26 @@ function createDedent(options: DedentOptions) {
 			result = result.trim();
 		}
 
-		// handle escaped newlines at the end to ensure they don't get stripped too
+		// Unescape escapes after trimming so sequences like `\n`, `\t`,
+		// `\xHH` and `\u{...}` are preserved (fixes #24)
 		if (escapeSpecialCharacters) {
-			result = result.replace(/\\n/g, "\n");
+			result = result
+				.replace(/\\n/g, "\n")
+				.replace(/\\t/g, "\t")
+				.replace(/\\r/g, "\r")
+				.replace(/\\v/g, "\v")
+				.replace(/\\b/g, "\b")
+				.replace(/\\f/g, "\f")
+				.replace(/\\0/g, "\0")
+				.replace(/\\x([\da-fA-F]{2})/g, (_, h: string) =>
+					String.fromCharCode(parseInt(h, 16)),
+				)
+				.replace(/\\u\{([\da-fA-F]{1,6})\}/g, (_, h: string) =>
+					String.fromCodePoint(parseInt(h, 16)),
+				)
+				.replace(/\\u([\da-fA-F]{4})/g, (_, h: string) =>
+					String.fromCharCode(parseInt(h, 16)),
+				);
 		}
 
 		// Workaround for Bun issue with Unicode characters
