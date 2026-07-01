@@ -302,6 +302,32 @@ describe("dedent", () => {
 		});
 	});
 
+	describe("escape sequences inside interpolated values", () => {
+		it("does not unescape a tab sequence from an interpolated value", () => {
+			expect(dedent`x: ${"a\\tb"}`).toBe("x: a\\tb");
+		});
+
+		it("does not unescape a newline sequence from an interpolated value", () => {
+			expect(dedent`x: ${"a\\nb"}`).toBe("x: a\\nb");
+		});
+
+		it("does not unescape a hex escape from an interpolated value", () => {
+			expect(dedent`x: ${"\\x41"}`).toBe("x: \\x41");
+		});
+
+		it("does not unescape a Unicode escape from an interpolated value", () => {
+			expect(dedent`x: ${"\\u{1F60A}"}`).toBe("x: \\u{1F60A}");
+		});
+
+		it("still expands escape sequences in the static parts around an interpolated value", () => {
+			expect(dedent`a\t${"b\\tc"}`).toBe("a\tb\\tc");
+		});
+
+		it("preserves a value that already contains the internal sentinel", () => {
+			expect(dedent`x: ${"a\uE000b\\tc"}`).toBe("x: a\uE000b\\tc");
+		});
+	});
+
 	it("does not unescape when called as a function (hex escape)", () => {
 		expect(dedent("\\xa0\\t")).toBe("\\xa0\\t");
 	});

@@ -27,6 +27,7 @@ function createDedent(options: DedentOptions) {
 
 		// first, perform interpolation
 		let result = "";
+		let hasHiddenBackslashes = false;
 		for (let i = 0; i < raw.length; i++) {
 			let next = raw[i];
 
@@ -44,8 +45,16 @@ function createDedent(options: DedentOptions) {
 			if (i < values.length) {
 				const value = alignValues ? alignValue(values[i], result) : values[i];
 
-				// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-				result += value;
+				if (escapeSpecialCharacters && typeof value === "string") {
+					// Hide backslashes coming from an interpolated value so the escape
+					// pass below does not unescape them and the value is preserved
+					// verbatim (fixes #109).
+					result += hideBackslashes(value);
+					hasHiddenBackslashes = true;
+				} else {
+					// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+					result += value;
+				}
 			}
 		}
 
@@ -114,6 +123,10 @@ function createDedent(options: DedentOptions) {
 			);
 		}
 
+		if (hasHiddenBackslashes) {
+			result = revealBackslashes(result);
+		}
+
 		return result;
 	}
 }
@@ -134,4 +147,29 @@ function alignValue(value: unknown, precedingText: string) {
 	}
 
 	return value;
+}
+
+// Interpolated values are shielded from the escape-sequence pass above so a
+// backslash sequence like `\t` inside a `${value}` is preserved verbatim
+// (fixes #109). Every backslash in a value is swapped for a private-use
+// sentinel before the value is assembled and swapped back once the escape pass
+// is done; a sentinel the value already contains is encoded too, so value
+// content always round-trips. The one gap is a sentinel produced by the escape
+// pass itself from a static part (e.g. a literal `\u{E000}` in the template),
+// which reveal can't tell apart from a value's sentinel; that needs the
+// private-use characters below to appear in a static part, so real input is
+// unaffected.
+const SENTINEL = "\uE000";
+const ENCODED_SENTINEL = "\uE001";
+
+function hideBackslashes(value: string) {
+	return value.replace(/[\uE000\\]/g, (char) =>
+		char === "\\" ? SENTINEL + SENTINEL : SENTINEL + ENCODED_SENTINEL,
+	);
+}
+
+function revealBackslashes(text: string) {
+	return text.replace(/\uE000([\uE000\uE001])/g, (_, char: string) =>
+		char === SENTINEL ? "\\" : SENTINEL,
+	);
 }
