@@ -25,6 +25,30 @@ function createDedent(options: DedentOptions) {
 			trimWhitespace = true,
 		} = options;
 
+		// The final unescape pass below runs on the fully assembled string, after
+		// indentation stripping and trimming (see the comment near that pass for
+		// why it has to happen there). That means it can't tell a backslash that
+		// came from the template's own source from one that came in through an
+		// interpolated value. To keep interpolated values byte-for-byte as given,
+		// any backslash inside a string value is swapped out for a placeholder
+		// before it's appended, then swapped back once the unescaping is done.
+		// The placeholder is grown until it's guaranteed not to collide with
+		// anything already in the template or its values.
+		let backslashPlaceholder = "";
+		if (escapeSpecialCharacters) {
+			let candidate = "\0dedent\0";
+			while (
+				raw.some((part) => part.includes(candidate)) ||
+				values.some(
+					(value) => typeof value === "string" && value.includes(candidate),
+				)
+			) {
+				candidate += candidate;
+			}
+
+			backslashPlaceholder = candidate;
+		}
+
 		// first, perform interpolation
 		let result = "";
 		for (let i = 0; i < raw.length; i++) {
@@ -42,7 +66,15 @@ function createDedent(options: DedentOptions) {
 			result += next;
 
 			if (i < values.length) {
-				const value = alignValues ? alignValue(values[i], result) : values[i];
+				let value = alignValues ? alignValue(values[i], result) : values[i];
+
+				if (
+					backslashPlaceholder &&
+					typeof value === "string" &&
+					value.includes("\\")
+				) {
+					value = value.split("\\").join(backslashPlaceholder);
+				}
 
 				// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
 				result += value;
@@ -112,6 +144,10 @@ function createDedent(options: DedentOptions) {
 					return String.fromCodePoint(parseInt(hex, 16));
 				},
 			);
+		}
+
+		if (backslashPlaceholder) {
+			result = result.split(backslashPlaceholder).join("\\");
 		}
 
 		return result;

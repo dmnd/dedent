@@ -286,6 +286,29 @@ describe("dedent", () => {
 		});
 	});
 
+	describe("escape sequences in interpolated values", () => {
+		it("leaves a backslash-t in an interpolated value untouched", () => {
+			const value = "a\\tb"; // literal backslash + t, not a tab
+			expect(dedent`x: ${value}`).toBe("x: a\\tb");
+			expect(dedent`x: ${value}`.includes("\t")).toBe(false);
+		});
+
+		it("leaves other escape-like sequences in interpolated values untouched", () => {
+			expect(dedent`${"a\\nb"}`).toBe("a\\nb");
+			expect(dedent`${"a\\x41b"}`).toBe("a\\x41b");
+			expect(dedent`${"a\\u0041b"}`).toBe("a\\u0041b");
+		});
+
+		it("still unescapes the static parts of the template", () => {
+			expect(dedent`static\nvalue: ${"a\\tb"}`).toBe("static\nvalue: a\\tb");
+		});
+
+		it("preserves a Windows-style path passed as a value", () => {
+			const path = "C:\\Users\\test";
+			expect(dedent`path: ${path}`).toBe("path: C:\\Users\\test");
+		});
+	});
+
 	describe("escape sequences when escapeSpecialCharacters is false", () => {
 		const dedenter = dedent.withOptions({ escapeSpecialCharacters: false });
 
