@@ -274,6 +274,29 @@ describe("dedent", () => {
 		expect(dedent(`\\nu`)).toBe("\\nu");
 	});
 
+	describe("escape sequences in interpolated values", () => {
+		it("leaves tab-like sequences in interpolated values untouched", () => {
+			expect(dedent`x: ${"a\\tb"}`).toBe("x: a\\tb");
+		});
+
+		it("leaves newline-like sequences in interpolated values untouched", () => {
+			expect(dedent`x: ${"a\\nb"}`).toBe("x: a\\nb");
+		});
+
+		it("leaves hex-like sequences in interpolated values untouched", () => {
+			expect(dedent`x: ${"a\\x41b"}`).toBe("x: a\\x41b");
+		});
+
+		it("leaves Unicode-like sequences in interpolated values untouched", () => {
+			expect(dedent`x: ${"a\\u0041b"}`).toBe("x: a\\u0041b");
+		});
+
+		it("preserves a Windows-style path passed as a value", () => {
+			const path = "C:\\Users\\test";
+			expect(dedent`path: ${path}`).toBe("path: C:\\Users\\test");
+		});
+	});
+
 	describe("escape sequences", () => {
 		it("passes through a hex escape", () => {
 			expect(dedent`\xa0\t`).toBe("\xa0\t");

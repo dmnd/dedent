@@ -42,7 +42,10 @@ function createDedent(options: DedentOptions) {
 			result += next;
 
 			if (i < values.length) {
-				const value = alignValues ? alignValue(values[i], result) : values[i];
+				let value = alignValues ? alignValue(values[i], result) : values[i];
+				if (escapeSpecialCharacters && typeof value === "string") {
+					value = value.replace(/\\/g, "\\\\");
+				}
 
 				// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
 				result += value;
@@ -82,34 +85,37 @@ function createDedent(options: DedentOptions) {
 		// Unescape escapes after trimming so sequences like `\n`, `\t`,
 		// `\xHH` and `\u{...}` are preserved (fixes #24)
 		if (escapeSpecialCharacters) {
-			result = result
-				.replace(/\\n/g, "\n")
-				.replace(/\\t/g, "\t")
-				.replace(/\\r/g, "\r")
-				.replace(/\\v/g, "\v")
-				.replace(/\\b/g, "\b")
-				.replace(/\\f/g, "\f")
-				.replace(/\\0/g, "\0")
-				.replace(/\\x([\da-fA-F]{2})/g, (_, h: string) =>
-					String.fromCharCode(parseInt(h, 16)),
-				)
-				.replace(/\\u\{([\da-fA-F]{1,6})\}/g, (_, h: string) =>
-					String.fromCodePoint(parseInt(h, 16)),
-				)
-				.replace(/\\u([\da-fA-F]{4})/g, (_, h: string) =>
-					String.fromCharCode(parseInt(h, 16)),
-				);
-		}
-
-		// Workaround for Bun issue with Unicode characters
-		// https://github.com/oven-sh/bun/issues/8745
-		if (typeof Bun !== "undefined") {
 			result = result.replace(
-				// Matches e.g. \\u{1f60a} or \\u5F1F
-				/\\u(?:\{([\da-fA-F]{1,6})\}|([\da-fA-F]{4}))/g,
-				(_, braced?: string, unbraced?: string) => {
-					const hex = braced ?? unbraced ?? "";
-					return String.fromCodePoint(parseInt(hex, 16));
+				/\\([\\ntrvbf0]|x([\da-fA-F]{2})|u\{([\da-fA-F]{1,6})\}|u([\da-fA-F]{4}))/g,
+				(_, escape: string, x?: string, braced?: string, unbraced?: string) => {
+					if (escape === "\\") {
+						return "\\";
+					}
+					if (escape === "n") {
+						return "\n";
+					}
+					if (escape === "t") {
+						return "\t";
+					}
+					if (escape === "r") {
+						return "\r";
+					}
+					if (escape === "v") {
+						return "\v";
+					}
+					if (escape === "b") {
+						return "\b";
+					}
+					if (escape === "f") {
+						return "\f";
+					}
+					if (escape === "0") {
+						return "\0";
+					}
+					const hex = x ?? braced ?? unbraced ?? "";
+					return braced
+						? String.fromCodePoint(parseInt(hex, 16))
+						: String.fromCharCode(parseInt(hex, 16));
 				},
 			);
 		}
