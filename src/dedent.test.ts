@@ -246,6 +246,50 @@ describe("dedent", () => {
 		`).toMatchSnapshot();
 	});
 
+	describe("lines without indentation", () => {
+		const options = { ignoreNonIndentedLines: false, trimWhitespace: true };
+
+		it("preserves indentation after a first line with no indent", () => {
+			expect(dedent.withOptions(options)("root\n  child")).toBe(
+				"root\n  child",
+			);
+		});
+
+		it("preserves indentation in an interpolated value", () => {
+			const value = "root\n\tchild";
+			expect(dedent.withOptions(options)`${value}`).toBe(value);
+		});
+
+		it("retains a zero minimum before later indented lines", () => {
+			expect(dedent.withOptions(options)("  first\nzero\n    later")).toBe(
+				"first\nzero\n    later",
+			);
+		});
+
+		it("does not count whitespace-only lines", () => {
+			expect(dedent.withOptions(options)("  alpha\n \n    beta")).toBe(
+				"alpha\n\n  beta",
+			);
+		});
+
+		it("still removes shared indentation", () => {
+			expect(dedent.withOptions(options)("\n  alpha\n    beta\n")).toBe(
+				"alpha\n  beta",
+			);
+		});
+
+		it("keeps the current default behavior", () => {
+			expect(dedent("root\n  child")).toBe("root\nchild");
+		});
+
+		it("allows restoring the default through withOptions", () => {
+			const restored = { ignoreNonIndentedLines: true, trimWhitespace: true };
+			expect(
+				dedent.withOptions(options).withOptions(restored)("root\n  child"),
+			).toBe("root\nchild");
+		});
+	});
+
 	it("works with spaces for indentation", () => {
 		expect(
 			dedent`

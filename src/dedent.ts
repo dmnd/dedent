@@ -22,6 +22,7 @@ function createDedent(options: DedentOptions) {
 		const {
 			alignValues = false,
 			escapeSpecialCharacters = Array.isArray(strings),
+			ignoreNonIndentedLines = true,
 			trimWhitespace = true,
 		} = options;
 
@@ -53,11 +54,11 @@ function createDedent(options: DedentOptions) {
 		const lines = result.split("\n");
 		let mindent: null | number = null;
 		for (const l of lines) {
-			const m = l.match(/^(\s+)\S+/);
+			const m = l.match(ignoreNonIndentedLines ? /^(\s+)\S+/ : /^(\s*)\S+/);
 			if (m) {
 				const indent = m[1].length;
-				if (!mindent) {
-					// this is the first indented line
+				if (mindent === null) {
+					// this is the first line with content
 					mindent = indent;
 				} else {
 					mindent = Math.min(mindent, indent);

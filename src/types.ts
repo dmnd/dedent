@@ -1,6 +1,7 @@
 export interface DedentOptions {
 	alignValues?: boolean;
 	escapeSpecialCharacters?: boolean;
+	ignoreNonIndentedLines?: boolean;
 	trimWhitespace?: boolean;
 }
 

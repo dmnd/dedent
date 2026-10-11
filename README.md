@@ -196,6 +196,21 @@ dedent.withOptions({ trimWhitespace: true })`
 `;
 ```
 
+### `ignoreNonIndentedLines`
+
+By default, only indented lines contribute to the minimum indentation.
+Set `ignoreNonIndentedLines: false` to include lines without indentation.
+This preserves relative indentation when some content starts in the first column.
+Blank lines are ignored.
+
+```js
+import dedent from "dedent";
+
+const value = "root\n  child";
+dedent(value); // "root\nchild"
+dedent.withOptions({ ignoreNonIndentedLines: false })(value); // "root\n  child"
+```
+
 ## License
 
 MIT
